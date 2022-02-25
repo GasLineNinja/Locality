@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+      background: rgba(58, 108, 245, 0.959);
+    margin: 0;
+  }
+  
+  .column {
+    float: left;
+    padding: 10px;
+  }
+  /*Left and reight columns*/
+  .column.side {
+    width: 25%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  
+  img {
+    position: absolute;
+    z-index: -1;
+  }

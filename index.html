@@ -1,102 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Index</title>
-	<style type="text/css">
-		body{
-			background: rgba(58, 108, 245, 0.959);
-			margin: 0;
-		}
-		.header{
-			background-color: rgba(11, 3, 117, 0.6);
-			padding: 20px;
-		}
-		
-		ul{
-			list-style-type: none;	
-		}
-		.login{
-			color: white;
-			background-color: rgba(58, 108, 245, 0.959);
-			border-radius: 5px;
-			font-size: large;
-			margin: 30px 2px;
-			padding: 15px 32px;
-			float: right;
-		}
-		.signup{
-			color: rgba(11, 3, 117, 0.6);
-			background-color: #07f813;
-			border-radius: 5px;
-			font-size: large;
-			margin: 30px 2px;
-			display: inline-block;
-			padding: 15px 20px;
-			float: right;
-		}
-		.smlogo {
-			padding-right: 100px;
-			z-index: -1;
-			width: 100%;
-			height: 100%;
-		}
-		.column{
-			float: left;
-			padding: 10px;
-		}
-		.column.side{
-			width: 25%;
-		}
-		.column.middle{
-			width: 50%;
-		}
-		.row:after {
-			content: "";
-			display: table;
-			clear: both;
-		}
-		@media screen and (max-width: 600px) {
-			.column.side, .column.middle {
-				width: 100%;
-			}
-		}
-	</style>
+<title>Locality Index</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
-	<div class="header">
-		<img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-		<a href="login.php" class ="login">Login</a>
-		<a href="signup.php" class ="signup">Sign Up</a>
-		<div class="search-container">
-			<form action="/action_page.php">
-			  <input type="text" placeholder="Search.." name="search">
-			  <button type="submit">Submit</button>
-			</form>
-		</div>
-			
-	</div></br>
 
-	<div class="row">
-		<div class="column side">
-			<h2>SIDE</h2>
-			<img class="smlogo" src="LogoSmall_3.0.png">
-		</div>
-
-		<div class="column middle">
-			<h2>Middle</h2>
-			<p>Hellosjkdahkfjashgalkjhgailkjhgakljhaksjhgalksjg
-				klsajdflakjglkafjglakfjglkafjglakfjgl;akfjg
-				flkjglkfjgal;kfjlkfjgl;aksdfjglkafjg;lakfjglakfg
-				lkdsfjgl;akfjglakfjglkasfjglakfjglakfjglakfjgalsk
-			</p>
-		</div>
-
-		<div class="column side">
-			<h2>SIDE</h2>
-			<img class="smlogo" src="LogoSmall_3.0.png">
-		</div>
-	</div>
-
+<div class="row">
+  <div class="column side">
+	<img src="LogoSmall_3.0.png" width="25%">
+  </div>
+  
+  <div class="column middle">
+    <h2>Main Content</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  </div>
+  
+  <div class="column side">
+	<img src="LogoSmall_3.0.png" width="25%">
+  </div>
+</div>
+  
 </body>
 </html>
+
+
