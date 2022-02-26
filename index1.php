@@ -1,25 +1,10 @@
 <?php
 	//Start session
 	session_start();
-	
-	//Include Header
 	$page_title = 'Locality';
-	include('header.php');
-	
-	//Mysql Connect
-	include('mysqli_connect.php');
 
-	// Welcome the user (by name if they are logged in): !!This code is old and can be changed
-	echo '<h1><center>Welcome';
-	if (isset($_SESSION['fname'])) {
-		echo ", {$_SESSION['fname']}";
-	} else {
-		echo ", You are not currently logged in";
-	}
-	echo '!</center></h1>';
-	
-	//Include Footer
-	include('footer.php');
+    //Mysql Connect
+	include('mysqli_connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +16,23 @@
 <link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
+  <div class="topnav">
+    <div class="topnav-left">
+          <img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+      <a href="login.php" class ="login">Login</a>
+      <a href="signup.php" class ="signup">Sign Up</a>
+      <div class="search-container">
+        <form>
+          <input class="searchbar" type="text" placeholder="Search.." name="search">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 <div class="row">
   <div class="column side">
-	<img src="LogoSmall_3.0.png" width="25%">
+	<img class="smlogo" src="LogoSmall_3.0.png">
   </div>
   
   <div class="column middle">
@@ -44,9 +42,10 @@
   </div>
   
   <div class="column side">
-	<img src="LogoSmall_3.0.png" width="25%">
+	<img class="smlogo" src="LogoSmall_3.0.png">
   </div>
 </div>
   
 </body>
+<?php include('footer.php');?>
 </html>
