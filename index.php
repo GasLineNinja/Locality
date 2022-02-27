@@ -1,10 +1,5 @@
 <?php
-	//Start session
-	session_start();
 	$page_title = 'Locality';
-
-    //Mysql Connect
-	include('mysqli_connect.php');
 ?>
 
 <!DOCTYPE html>
