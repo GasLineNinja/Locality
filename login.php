@@ -1,3 +1,17 @@
+<?php
+
+$page_title = 'Login';
+
+if (isset($errors) && !empty($errors)){
+	echo '<p><h1>Error!</h1></p>
+		<p class="error">The following errors occured:<br/>';
+	foreach ($errors as $message){
+		echo "- $message<br/>\n</p>";
+	}
+	echo "<p>Try again.</p>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +23,9 @@
 <body>
   <div class="topnav">
       <div class="topnav-left">
-          <img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-          <h1 style="color:#07f813; text-align:center">Please login to continue</h1>
+          <img style="margin-top:-20px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+          <h1 style="color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
+          <p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
       </div>
   </div>
 
