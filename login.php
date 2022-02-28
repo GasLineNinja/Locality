@@ -1,3 +1,17 @@
+<?php
+
+$page_title = 'Login';
+
+if (isset($errors) && !empty($errors)){
+	echo '<p><h1>Error!</h1></p>
+		<p class="error">The following errors occured:<br/>';
+	foreach ($errors as $message){
+		echo "- $message<br/>\n</p>";
+	}
+	echo "<p>Try again.</p>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
