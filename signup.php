@@ -114,13 +114,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
-  <div class="topnav">
-      <div class="topnav-left">
-          <img style="margin-top:-15px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-          <h1 style="color:#07f813; margin-right:100px; margin-top:-50px">Please fill out the form below to create an account</h1>
-          <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
-      </div>
-  </div>
+  <header>
+    <div class="topnav">
+        <div class="topnav-left">
+            <img style="margin-top:-30px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+            <h1 style="font-size: 25px; color:#07f813; margin-right:75px; margin-top:-25px">Please fill out the form below to create an account</h1>
+            <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
+        </div>
+    </div>
+  </header>
 
 <div class="row">
   <div class="column side">

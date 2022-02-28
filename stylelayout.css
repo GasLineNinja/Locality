@@ -29,7 +29,7 @@ body {
   background-color: #07f813;
   border-radius: 5px;
   font-size: large;
-  margin: -15px 4px;
+  margin: -15px 20px;
   padding: 15px 20px;
   float: right;
 }
@@ -44,6 +44,7 @@ a:hover{
 .searchbar {
   width: 50%;
   height: 100%;
+  margin-left: 125px;
 }
 
 .column {
@@ -90,4 +91,34 @@ dt {
 }
 dd {
   text-align: left;
+}
+
+li a:hover:not(.active) {
+  background-color: white;
+}
+
+.active {
+  background-color: #07f813;
+  color: rgba(11, 3, 117, 0.6);
+}
+
+li {
+  float: left;
+}
+
+ul {
+  list-style-type: none; 
+  margin-left:600px; 
+  margin-top: 30px;
+  padding: 0px; 
+  overflow: hidden; 
+  background-color: rgba(58, 108, 245, 0.959)
+}
+
+li a {
+  display: block; 
+  color: #07f813; 
+  text-align: center; 
+  padding: 14px 16px; 
+  text-decoration: none
 }

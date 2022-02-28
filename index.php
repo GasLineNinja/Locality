@@ -11,19 +11,21 @@
 <link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
-  <div class="topnav">
-    <div class="topnav-left">
-          <img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-      <a href="login.php" class ="login">Login</a>
-      <a href="signup.php" class ="signup">Sign Up</a>
-      <div class="search-container">
-        <form>
-          <input class="searchbar" type="text" placeholder="Search.." name="search">
-          <button type="submit">Search</button>
-        </form>
+  <header>
+    <div class="topnav">
+      <div class="topnav-left">
+            <img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+        <a style="margin-left:10px" href="login.php" class ="login">Login</a>
+        <a style="margin-left:-20px" href="signup.php" class ="signup">Sign Up</a>
+        <div class="search-container">
+          <form>
+            <input style="margin-left:75px" class="searchbar" type="text" placeholder="Search.." name="search">
+            <button type="submit">Search</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
+</header>
 
 <div class="row">
   <div class="column side">

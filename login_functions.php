@@ -41,7 +41,7 @@ function check_login($dbc, $username='', $password=''){
 	if (empty($errors)){
 
 		//run the query
-		$query = "SELECT username, userId FROM user WHERE username='$u' AND password=SHA2('$p',256)";
+		$query = "SELECT username, userId FROM user WHERE username='$u' AND userPassword=SHA2('$p',256)";
 
 		$result = @mysqli_query($dbc, $query);
 
@@ -55,7 +55,7 @@ function check_login($dbc, $username='', $password=''){
 		//otherwise there was an error
 		else{
 			
-			$errors[] = "The username and password do not match existing users.";
+			$errors[] = "The username or password do not match existing users.";
 		}
 	}
 

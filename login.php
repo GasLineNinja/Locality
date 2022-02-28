@@ -1,14 +1,47 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+	//using helper files
+	require ('login_functions.php');
+	require ('mysqli_connect.php');
+
+	//chcking the login
+	list ($check, $data) = check_login($dbc, $_POST['username'], $_POST['pass1']);
+
+	//If everything is ok
+	if ($check){
+
+		//setting session data
+		session_start();
+		$_SESSION['username'] = $data['username'];
+
+		$_SESSION['userId'] = $data['userId'];
+
+		//storing HTTP_USER_AGENT
+		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
+
+		//redirecting to home page after login
+		redirect_user('home.php');
+	}
+	else{
+		$errors = $data;
+	}
+
+	//close the database
+	mysqli_close($dbc);
+}
+
+//creating the login form
 $page_title = 'Login';
 
+//if there are any errors display them
 if (isset($errors) && !empty($errors)){
 	echo '<p><h1>Error!</h1></p>
 		<p class="error">The following errors occured:<br/>';
 	foreach ($errors as $message){
-		echo "- $message<br/>\n</p>";
+		echo "- $message<br/>\n";
 	}
-	echo "<p>Try again.</p>";
+	echo "</p><p>Try again.</p>";
 }
 ?>
 
@@ -21,13 +54,15 @@ if (isset($errors) && !empty($errors)){
 <link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
-  <div class="topnav">
-      <div class="topnav-left">
-          <img style="margin-top:-20px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-          <h1 style="color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
-          <p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
-      </div>
-  </div>
+  <header>
+    <div class="topnav">
+        <div class="topnav-left">
+            <img style="margin-top:-20px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+            <h1 style="font-size: 25px; color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
+            <p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
+        </div>
+    </div>
+</header>
 
 <div class="row">
   <div class="column side">
