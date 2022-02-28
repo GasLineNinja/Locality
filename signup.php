@@ -116,8 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <body>
   <div class="topnav">
       <div class="topnav-left">
-          <img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-          <h1 style="color:#07f813; text-align:center">Please fill out the form below to create an account</h1>
+          <img style="margin-top:-15px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+          <h1 style="color:#07f813; margin-right:100px; margin-top:-50px">Please fill out the form below to create an account</h1>
+          <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
       </div>
   </div>
 
