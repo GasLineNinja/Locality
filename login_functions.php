@@ -41,7 +41,7 @@ function check_login($dbc, $username='', $password=''){
 	if (empty($errors)){
 
 		//run the query
-		$query = "SELECT username, userId FROM user WHERE username='$u' AND userPassword=SHA2('$p',256)";
+		$query = "SELECT username, userID FROM User WHERE username='$u' AND userPassword=SHA2('$p',256)";
 
 		$result = @mysqli_query($dbc, $query);
 

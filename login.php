@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		session_start();
 		$_SESSION['username'] = $data['username'];
 
-		$_SESSION['userId'] = $data['userId'];
+		$_SESSION['userID'] = $data['userID'];
 
 		//storing HTTP_USER_AGENT
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);

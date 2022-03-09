@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//If nothing is wrong make query
 	if (empty($errors)){
 
-		$query = "INSERT INTO user (username, userFirstName, userLastName, userPassword, userCity, userZipCode, userEmail) 
+		$query = "INSERT INTO User (username, userFirstName, userLastName, userPassword, userCity, userZipCode, userEmail) 
 		VALUES ('$username', '$fname', '$lname', SHA2('$password',256), '$city', '$zipcode', '$email')";
 
 		$result = @mysqli_query($dbc, $query);
