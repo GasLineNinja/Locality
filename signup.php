@@ -114,15 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
-  <header>
-    <div class="topnav">
-        <div class="topnav-left">
-            <a href="index.php"><img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto" ></a>
-            <h1 style="font-size: 25px; color:#07f813; margin-right:75px; margin-top:-25px">Please fill out the form below to create an account</h1>
-            <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
-        </div>
-    </div>
-  </header>
+
+  <?php
+    //Include Header
+    include('header.php');
+  ?>
+
 
 <div class="row">
   <div class="column side">
@@ -130,6 +127,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   </div>
   
   <div class="column middle">
+    
+    <!-- Very broken fix right now, temporary -->
+    </br>
+    </br>
+    </br>
+    <h1 style="font-size: 25px; color:#07f813; margin-right:75px; margin-top:-25px">Please fill out the form below to create an account</h1>
+    <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
+
     <form action="signup.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;" action="login.php">
       
       <label class="username">Username</label></br>

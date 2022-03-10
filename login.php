@@ -54,24 +54,27 @@ if (isset($errors) && !empty($errors)){
 <link rel="stylesheet" href="stylelayout.css">
 </head>
 <body>
-  <header>
-    <div class="topnav">
-        <div class="topnav-left">
-            <a href="index.php"><img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto" ></a>
-            <h1 style="font-size: 25px; color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
-            <p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
-        </div>
-    </div>
-</header>
+
+	<?php
+		//Include Header
+		include('header.php');
+	?>
+
 
 <div class="row">
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
   </div>
-  
+
   <div class="column middle">
+	<!-- Very broken fix right now, temporary -->
+	</br>
+	</br>
+	</br>
+	<h1 style="font-size: 25px; color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
+	<p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
     <form action="login.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;" action="login.php">
-      
+
       <label class="username">Username</label></br>
       <input style="width:75%; border-radius: 25px" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
 
@@ -80,14 +83,14 @@ if (isset($errors) && !empty($errors)){
 
       <input style="width:25%; margin-left:245px; color: rgba(11, 3, 117, 0.6); background-color: #07f813; border-radius: 25px" type="submit" name="submit" value="Submit">
     </form>
-    
+
   </div>
-  
+
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
   </div>
 </div>
-  
+
 </body>
 <?php include('footer.php');?>
 </html>
