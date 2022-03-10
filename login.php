@@ -73,16 +73,18 @@ if (isset($errors) && !empty($errors)){
 	</br>
 	<h1 style="font-size: 25px; color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
 	<p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
+		<div class="login_form">
     <form action="login.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;" action="login.php">
 
       <label class="username">Username</label></br>
-      <input style="width:75%; border-radius: 25px" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
+      <input class="login_form_input" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
 
       <label class="password">Password</label></br>
-      <input style="width:75%; border-radius: 25px" type="password" id="pass1" name="pass1" placeholder="Password.." value="<?php if(isset($_REQUEST['userPassword'])) echo $_REQUEST['userPassword'];?>" required></br>
+      <input class="login_form_input" type="password" id="pass1" name="pass1" placeholder="Password.." value="<?php if(isset($_REQUEST['userPassword'])) echo $_REQUEST['userPassword'];?>" required></br>
 
-      <input style="width:25%; margin-left:245px; color: rgba(11, 3, 117, 0.6); background-color: #07f813; border-radius: 25px" type="submit" name="submit" value="Submit">
+      <input class="login_form_submit" type="submit" name="submit" value="Submit">
     </form>
+		</div>
 
   </div>
 

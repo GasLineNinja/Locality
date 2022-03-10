@@ -134,36 +134,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </br>
     <h1 style="font-size: 25px; color:#07f813; margin-right:75px; margin-top:-25px">Please fill out the form below to create an account</h1>
     <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
-
+		<div class="signUp_form">
     <form action="signup.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;" action="login.php">
       
       <label class="username">Username</label></br>
-      <input style="width:75%; border-radius: 25px" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
+      <input class="signUp_form_input" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
 
       <label class="password">Password</label></br>
-      <input style="width:75%; border-radius: 25px" type="password" id="pass1" name="pass1" placeholder="Password.." value="<?php if(isset($_REQUEST['userPassword'])) echo $_REQUEST['userPassword'];?>" required></br>
+      <input class="signUp_form_input" type="password" id="pass1" name="pass1" placeholder="Password.." value="<?php if(isset($_REQUEST['userPassword'])) echo $_REQUEST['userPassword'];?>" required></br>
 
       <label class="cpassword">Confirm Password</label></br>
-      <input style="width:75%; border-radius: 25px" type="password" id="pass2" name="pass2" placeholder="Confirm Password.." required></br>
+      <input class="signUp_form_input" type="password" id="pass2" name="pass2" placeholder="Confirm Password.." required></br>
 
       <label class="fname">First Name</label></br>
-      <input style="width:75%; border-radius: 25px" type="text" id="fname" name="fname" placeholder="Your first name.." required></br>
+      <input class="signUp_form_input" type="text" id="fname" name="fname" placeholder="Your first name.." required></br>
 
       <label class="lname">Last Name</label></br>
-      <input style="width:75%; border-radius: 25px" type="text" id="lname" name="lname" placeholder="Your last name.." required></br>
+      <input class="signUp_form_input" type="text" id="lname" name="lname" placeholder="Your last name.." required></br>
 
       <label class="email">Email</label></br>
-      <input style="width:75%; border-radius: 25px" type="email" id="email" name="email" placeholder="Email Address.." required></br>
+      <input class="signUp_form_input" type="email" id="email" name="email" placeholder="Email Address.." required></br>
         
       <label class="city">City</label></br>
-      <input style="width:75%; border-radius: 25px" type="text" id="city" name="city" placeholder="City where you live.." required></br>
+      <input class="signUp_form_input" type="text" id="city" name="city" placeholder="City where you live.." required></br>
 
       <label class="zipcode">Zip Code</label></br>
-      <input style="width:75%; border-radius: 25px" type="text" id="zipcode" name="zipcode" placeholder="Zip code where you live.." required></br></br>
+      <input class="signUp_form_input" type="text" id="zipcode" name="zipcode" placeholder="Zip code where you live.." required>
 
-      <input style="width:25%; margin-left:245px; color: rgba(11, 3, 117, 0.6); background-color: #07f813; border-radius: 25px" type="submit" name="submit" value="Submit">
+      <input class="signUp_form_submit" type="submit" name="submit" value="Submit">
     </form>
-    
+		</div>
   </div>
   
   <div class="column side">

@@ -38,7 +38,7 @@ body {
   padding: 15px 32px;
   float: right;
 	font-weight: 750;
-	transition: all 0.3s ease-out;
+	transition: all 0.2s ease-out;
 }
 .signup{
   color: #005704;
@@ -50,27 +50,46 @@ body {
   padding: 15px 20px;
   float: right;
 	font-weight: 750;
-	transition: all 0.3s ease-out;
+	transition: all 0.2s ease-out;
 }
 
 .signup:hover{
-  background: #e4ffe0; 
-	transition: all 0.3s ease-in;
+  background: #45a049;
+	transition: all 0.2s ease-in;
 }
 
 .login:hover{
-  background: #75caff;
-	transition: all 0.3s ease-in;
+  background: #2d55cd;
+	transition: all 0.2s ease-in;
 }
 
 .lglogo {
   float: left;
   margin: -55px;
 }
-.searchbar {
+.main_search {
   width: 50%;
   height: 100%;
-  margin-left: 125px;
+	padding: 14px 20px;
+	border-radius: 14px;
+  margin-left: 0px;
+}
+
+.search_btn[type=submit]{
+	margin-left: 125px;
+	width: auto;
+  background-color: #07f813; 
+  color: #005704;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+.search_btn[type=submit]:hover {
+  background-color: #45a049;
+	transition: all 0.2s ease-in;
 }
 
 .column {
@@ -194,4 +213,70 @@ li a {
 	color: rgb(202, 202, 202);
   text-align: center;
 	padding-bottom: 5px;
+}
+
+.login_form{
+	padding: 15px 5px 10px 5px;
+	background-color: white;
+	border-radius: 14px;
+}
+
+.login_form_input, select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.login_form_submit[type=submit] {
+  width: 75%;
+  background-color: #07f813; 
+  color: #005704;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+.login_form_submit[type=submit]:hover {
+  background-color: #45a049;
+	transition: all 0.2s ease-in;
+}
+
+.signUp_form{
+	padding: 15px 5px 10px 5px;
+	background-color: white;
+	border-radius: 14px;
+}
+
+.signUp_form_input, select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.signUp_form_submit[type=submit] {
+  width: 75%;
+  background-color: #07f813; 
+  color: #005704;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+.signUp_form_submit[type=submit]:hover {
+  background-color: #45a049;
+	transition: all 0.2s ease-in;
 }

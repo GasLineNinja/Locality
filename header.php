@@ -6,8 +6,8 @@
         <a style="margin-left:-20px" href="signup.php" class ="signup">Sign Up</a>
         <div class="search-container">
           <form>
-            <input style="margin-left:75px" class="searchbar" type="text" placeholder="Search.." name="search">
-            <button type="submit">Search</button>
+						<button class="search_btn" type="submit">Search</button>
+            <input class="main_search"  type="text" placeholder="Search.." name="search">
           </form>
         </div>
       </div>
