@@ -9,7 +9,5 @@
 		}
 	</style>
 </head>
-<body>
-	<p>Copyright &copy 2022 Michael Strand, Ryan Van Pay, and Joseph Lundell</p>
-</body>
+	<p class="footer">Copyright &copy 2022 Michael Strand, Ryan Van Pay, and Joseph Lundell</p>
 </html>
