@@ -1,5 +1,8 @@
 * {
   box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -15,28 +18,46 @@ body {
   padding: 75px;
   text-align: center;
 }
+
+.navBar{
+  width:100%;
+}
+
 .login{
   color: white;
   background-color: rgba(58, 108, 245, 0.959);
-  border-radius: 5px;
+  border-radius: 14px;
+	text-decoration: none;
   font-size: large;
   margin: -15px;
   padding: 15px 32px;
   float: right;
+	font-weight: 750;
+	transition: all 0.3s ease-out;
 }
 .signup{
   color: rgba(11, 3, 117, 0.6);
   background-color: #07f813;
-  border-radius: 5px;
+  border-radius: 14px;
+	text-decoration: none;
   font-size: large;
   margin: -15px 20px;
   padding: 15px 20px;
   float: right;
+	font-weight: 750;
+	transition: all 0.3s ease-out;
 }
-a:hover{
-  text-decoration: underline;
-  color: blue;
+
+.signup:hover{
+  background: #aeffa3; 
+	transition: all 0.3s ease-in;
 }
+
+.login:hover{
+  background: #75caff;
+	transition: all 0.3s ease-in;
+}
+
 .lglogo {
   float: left;
   margin: -55px;
@@ -121,4 +142,43 @@ li a {
   text-align: center; 
   padding: 14px 16px; 
   text-decoration: none
+}
+
+.welcome{
+	color: white;
+  text-align: center;
+  padding-up: 20px;
+	padding-bottom: 10px;
+  font-size: 40px;
+}
+
+.whatDo{
+	color: white;
+  padding: 10px;
+}
+
+.info_title{
+	color:white;
+	text-align: left;
+	position: static;
+}
+
+.info_content{
+  color: #b5b5b5;
+  padding-bottom: 5px;
+	padding-left: 20px;
+  text-decoration: bold;
+	transition: all 0.3s ease-out;
+}
+
+.info_content:hover{
+  color: white;
+	transition: all 0.3s ease-in;
+}
+
+.info_full{
+	width: 100%;
+	background-color: #2e51ff;
+	padding: 20px;
+	border-radius: 14px;
 }

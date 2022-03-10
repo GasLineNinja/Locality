@@ -57,7 +57,7 @@ if (isset($errors) && !empty($errors)){
   <header>
     <div class="topnav">
         <div class="topnav-left">
-            <img style="margin-top:-20px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
+            <a href="index.php"><img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto" ></a>
             <h1 style="font-size: 25px; color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
             <p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
         </div>

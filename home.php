@@ -10,13 +10,15 @@
   <header>
     <div class="topnav">
       <div class="topnav-left">
-            <img style="margin-top:-75px" class="lglogo" src="LogoFull_3.0.png" width="200" height="auto">
-        <ul>
-            <li><a class="active" href="home.php">Home</a></li>
-            <li><a href="recommend.php">Recommend</a></li>
-            <li><a href="myrecommendations.php">My Recommendations</a></li>
-            <li><a href="signout.php">Sign Out</a></li>
-        </ul>
+        <a href="index.php"><img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto" ></a>
+        <div class="navBar">
+          <ul>
+              <li><a class="active" href="home.php">Home</a></li>
+              <li><a href="recommend.php">Recommend</a></li>
+              <li><a href="myrecommendations.php">My Recommendations</a></li>
+              <li><a href="signout.php">Sign Out</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </header>
