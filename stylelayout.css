@@ -224,7 +224,7 @@ li a {
 .login_form_input, select {
   width: 75%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin-bottom: 10px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 14px;
@@ -257,7 +257,7 @@ li a {
 .signUp_form_input, select {
   width: 75%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin-bottom: 10px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 14px;
@@ -279,4 +279,41 @@ li a {
 .signUp_form_submit[type=submit]:hover {
   background-color: #45a049;
 	transition: all 0.2s ease-in;
+}
+
+.form_info{
+	color: #202ea8;
+	margin: 12px 25px 3px 25px;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.redirect_size{
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+
+.redirect_btn{
+	background-color: #07f813;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 4px;
+	border-radius: 14px;
+	text-decoration: none;
+	color: #005704;
+	margin-bottom: 2px;
+	transition: all 0.2s ease-out;
+}
+
+.redirect_btn:hover {
+  background-color: #45a049;
+	transition: all 0.2s ease-in;
+}
+
+.form_content_titles{
+	font-size: 20px;
+	font-weight: 500;
+	padding: 12px 0px 0px 0px;
+	margin: 0px;
+	margin-left: 6px;
 }

@@ -127,38 +127,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   </div>
   
   <div class="column middle">
-    
-    <!-- Very broken fix right now, temporary -->
-    </br>
-    </br>
-    </br>
-    <h1 style="font-size: 25px; color:#07f813; margin-right:75px; margin-top:-25px">Please fill out the form below to create an account</h1>
-    <p>or <a style="color:#07f813" href="login.php">Login</a> to continue</p>
 		<div class="signUp_form">
+		<h1 class="form_info">Please fill out the form below to create an account</h1>
+    <p class="redirect_size">or <a class="redirect_btn" href="login.php">Login</a> if you have an existing account</p>
     <form action="signup.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;" action="login.php">
       
-      <label class="username">Username</label></br>
+      <label class="form_content_titles">Username</label></br>
       <input class="signUp_form_input" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
 
-      <label class="password">Password</label></br>
+      <label class="form_content_titles">Password</label></br>
       <input class="signUp_form_input" type="password" id="pass1" name="pass1" placeholder="Password.." value="<?php if(isset($_REQUEST['userPassword'])) echo $_REQUEST['userPassword'];?>" required></br>
 
-      <label class="cpassword">Confirm Password</label></br>
+      <label class="form_content_titles">Confirm Password</label></br>
       <input class="signUp_form_input" type="password" id="pass2" name="pass2" placeholder="Confirm Password.." required></br>
 
-      <label class="fname">First Name</label></br>
+      <label class="form_content_titles">First Name</label></br>
       <input class="signUp_form_input" type="text" id="fname" name="fname" placeholder="Your first name.." required></br>
 
-      <label class="lname">Last Name</label></br>
+      <label class="form_content_titles">Last Name</label></br>
       <input class="signUp_form_input" type="text" id="lname" name="lname" placeholder="Your last name.." required></br>
 
-      <label class="email">Email</label></br>
+      <label class="form_content_titles">Email</label></br>
       <input class="signUp_form_input" type="email" id="email" name="email" placeholder="Email Address.." required></br>
         
-      <label class="city">City</label></br>
+      <label class="form_content_titles">City</label></br>
       <input class="signUp_form_input" type="text" id="city" name="city" placeholder="City where you live.." required></br>
 
-      <label class="zipcode">Zip Code</label></br>
+      <label class="form_content_titles">Zip Code</label></br>
       <input class="signUp_form_input" type="text" id="zipcode" name="zipcode" placeholder="Zip code where you live.." required>
 
       <input class="signUp_form_submit" type="submit" name="submit" value="Submit">

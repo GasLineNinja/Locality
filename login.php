@@ -67,19 +67,15 @@ if (isset($errors) && !empty($errors)){
   </div>
 
   <div class="column middle">
-	<!-- Very broken fix right now, temporary -->
-	</br>
-	</br>
-	</br>
-	<h1 style="font-size: 25px; color:#07f813; margin-right:100px; margin-top:-35px">Please login to continue</h1>
-	<p>or <a style="color:#07f813" href="signup.php">Sign Up</a> to create an account</p>
 		<div class="login_form">
+		<h1 class="form_info">Please login to continue</h1>
+		<p class="redirect_size">or <a class="redirect_btn" href="signup.php">Sign Up</a> to create an account</p>
     <form action="login.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;" action="login.php">
 
-      <label class="username">Username</label></br>
+      <label class="form_content_titles">Username</label></br>
       <input class="login_form_input" type="text" id="username" name="username" placeholder="Username.." value="<?php if(isset($_REQUEST['username'])) echo $_REQUEST['username'];?>" required></br>
 
-      <label class="password">Password</label></br>
+      <label class="form_content_titles">Password</label></br>
       <input class="login_form_input" type="password" id="pass1" name="pass1" placeholder="Password.." value="<?php if(isset($_REQUEST['userPassword'])) echo $_REQUEST['userPassword'];?>" required></br>
 
       <input class="login_form_submit" type="submit" name="submit" value="Submit">
