@@ -126,13 +126,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
     <div>
-      <ul>
-        <li><a class="active" href="home.php">Home</a></li>
-        <li><a href="places.php">Where To Go</a></li>
-        <li><a href="recommend.php">Recommend</a></li>
-        <li><a href="myrecommendations.php">My Recommendations</a></li>
-        <li><a href="signout.php">Sign Out</a></li>
-      </ul>
+        <ul>
+          <li><a class="active" href="home.php">Home</a></li>
+          <li><a href="places.php">Where To Go</a></li>
+          <li><a href="recommend.php">Recommend</a></li>
+          <li><a href="myrecommendations.php">My Recommendations</a></li>
+          <li><a href="signout.php">Sign Out</a></li>
+        </ul>
     </div>
   </div>
   
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       <input class="recommend_form_input" type="text" id="busStreetAddress" name="busStreetAddress" placeholder="Let people know where it is.." value="" required></br>
 
       <label class="form_content_titles">City</label></br>
-      <input class="recommend_form_input" type="text" id="busCity" name="busCity" placeholder="<?php ?>" READONLY></br>
+      <input class="recommend_form_input" type="text" id="busCity" name="busCity" placeholder="$busCity" READONLY></br>
 
       <label class="form_content_titles">State</label></br>
       <input class="recommend_form_input" type="text" id="busState" name="busState" placeholder="State located in.." required></br>

@@ -77,7 +77,7 @@ body {
 }
 
 .search_btn[type=submit]{
-	margin-left: 125px;
+	margin-left: 100px;
 	width: auto;
   background-color: #07f813; 
   color: #005704;
