@@ -26,6 +26,7 @@ body {
 .navBar{
   width:100%;
 	opacity: 1;
+  
 }
 
 .login{
@@ -97,7 +98,7 @@ body {
   padding: 10px;
 }
 
-/*Left and reight columns*/
+/*Left and right columns*/
 .column.side {
   width: 25%;
 }
@@ -105,6 +106,8 @@ body {
 /* Middle column */
 .column.middle {
   width: 50%;
+  text-align: center;
+  font-size: x-large;
 }
 
 /* Clear floats after the columns */
@@ -126,11 +129,6 @@ body {
   width: 25%;
 }
 
-.column.middle {
-  text-align: center;
-  font-size: x-large;
-}
-
 dt {
   font-weight: bold;
 }
@@ -149,21 +147,21 @@ li a:hover:not(.active) {
 
 li {
   float: left;
+  width: 100%;
 }
 
 ul {
-  list-style-type: none; 
-  margin-left:600px; 
-  margin-top: 30px;
-  padding: 0px; 
-  overflow: hidden; 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
   background-color: rgba(58, 108, 245, 0.959)
 }
 
 li a {
   display: block; 
   color: #07f813; 
-  text-align: center; 
+  text-align: left; 
   padding: 14px 16px; 
   text-decoration: none
 }
@@ -316,4 +314,37 @@ li a {
 	padding: 12px 0px 0px 0px;
 	margin: 0px;
 	margin-left: 6px;
+}
+
+.recommend_form{
+	padding: 15px 5px 10px 5px;
+	background-color: white;
+	border-radius: 14px;
+}
+
+.recommend_form_input, select {
+  width: 75%;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.recommend_form_submit[type=submit] {
+  width: 75%;
+  background-color: #07f813; 
+  color: #005704;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+.recommend_form_submit[type=submit]:hover {
+  background-color: #45a049;
+	transition: all 0.2s ease-in;
 }
