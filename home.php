@@ -3,6 +3,12 @@
 session_start();
 $page_title = "Home";
 
+//Redirect user to login screen if not signed in 
+if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']))){
+  header("Location: login.php");
+  exit();
+}
+
 ?>
 
 <!DOCTYPE html>

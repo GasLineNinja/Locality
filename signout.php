@@ -5,10 +5,9 @@ session_start();
 $page_title = 'Sign Out';
 
 //if no session redirect user
-if (!isset($_SESSION['username'])){
-
-	require ("login_functions.php");
-	echo '<p><h2 style="color: #07f813">You are currently logged out.<br/>Please <a href="login.php">Login</a> to continue.</p></h2>';
+if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']))){
+  header("Location: login.php");
+  exit();
 }
 else{
 
@@ -18,7 +17,7 @@ else{
 	session_destroy();
 
 //printing log out message
-echo "<p><h2>You have been logged out!</h2></p>";
+echo "</br><p><h2 class='welcome'>You have been logged out!</h2></p>";
 }
 ?>
 

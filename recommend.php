@@ -4,10 +4,10 @@
 session_start();
 $page_title = "Recommend";
 
+//Redirect user to login screen if not signed in 
 if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']))){
-
-    require ('login_functions.php');
-    echo '<p><h2>Please <a href="login.php">Login</a> to continue.</h2></p>';
+  header("Location: login.php");
+  exit();
 }
 
 //Checking if the form has been submitted
