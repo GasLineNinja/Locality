@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
   <?php
     //Include Header
-    include('header_logged_in.php');
+    include('header.php');
   ?>
 
 

@@ -74,6 +74,7 @@ body {
 	padding: 14px 20px;
 	border-radius: 14px;
   margin-left: 0px;
+  margin-top: -200px;
 }
 
 .search_btn[type=submit]{
@@ -86,6 +87,7 @@ body {
   border-radius: 14px;
   cursor: pointer;
 	transition: all 0.2s ease-out;
+  margin-top: -200px;
 }
 
 .search_btn[type=submit]:hover {

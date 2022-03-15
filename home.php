@@ -23,7 +23,7 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
 
   <?php
     //Include Header
-    include('header_logged_in.php');
+    include('header.php');
   ?>
 
 
