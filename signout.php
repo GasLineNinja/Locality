@@ -4,7 +4,7 @@
 session_start();
 $page_title = 'Sign Out';
 
-//if no session redirect user
+//if no session redirect user to login
 if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']))){
   header("Location: login.php");
   exit();
