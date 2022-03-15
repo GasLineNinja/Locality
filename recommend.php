@@ -126,13 +126,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
     <div>
-        <ul>
-          <li><a class="active" href="home.php">Home</a></li>
-          <li><a href="places.php">Where To Go</a></li>
-          <li><a href="recommend.php">Recommend</a></li>
-          <li><a href="myrecommendations.php">My Recommendations</a></li>
-          <li><a href="signout.php">Sign Out</a></li>
-        </ul>
+    <ul class="sideNav">
+        <a href="home.php"><li class="nav_select"><p class="nav_txt">Home</p></li></a>
+        <a href="places.php"><li class="nav_select"><p class="nav_txt">Where To Go</p></li></a>
+        <a href="recommend.php"><li class="nav_active"><p>Recommend</p></li></a>
+        <a href="myrecommendations.php"><li class="nav_select"><p class="nav_txt">My Recommendations</p></li></a>
+        <a href="signout.php"><li class="nav_select"><p class="nav_txt">Sign Out</p></li></a>
+      </ul>
     </div>
   </div>
   
