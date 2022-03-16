@@ -1,12 +1,13 @@
 <?php
 
 $page_title = 'Sign Up';
+require ('redirect_user.php');
 
 //Checking if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//connecting to the database
-	require ('mysqli_connect.php');
+	require ('mysqli_connect.php')
 
 	//Making an array to hold error messages
 	$errors = array();
@@ -79,6 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 		//If the query works relay message
 		if ($result){
+
+      redirect_user ('home.php');
 
 			echo "<p>Thank you $username you are now signed up!</p>";
 			echo '<p>Please <a href="login.php">Login</a> to continue.</P>';

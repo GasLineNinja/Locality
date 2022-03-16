@@ -93,11 +93,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Locality Recommend</title>
+<title>Locality Review</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="stylelayout.css">
@@ -126,27 +125,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   </div>
   
   <div class="column middle">
-  <div class="recommend_form">
-	<h1 class="form_info">Recommend your favorite spot!</h1>
+  <div class="review_form">
+	<h1 class="form_info">Tell everyone why you love this place!</h1>
     
-    <form action="recommend.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
+    <form action="review.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
       
-      <label class="form_content_titles">Business Name</label></br>
-      <input class="recommend_form_input" type="text" id="busName" name="busName" placeholder="Your favorite business's name goes here.." value="" required></br>
-
-      <label class="form_content_titles">Address</label></br>
-      <input class="recommend_form_input" type="text" id="busStreetAddress" name="busStreetAddress" placeholder="Let people know where it is.." value="" required></br>
-
-      <label class="form_content_titles">City</label></br>
-      <input class="recommend_form_input" type="text" id="busCity" name="busCity" value="<?php echo $_SESSION['userCity']?>" READONLY></br>
-
-      <label class="form_content_titles">State</label></br>
-      <input class="recommend_form_input" type="text" id="busState" name="busState" placeholder="State located in.. i.e. NY, WI, CA.." maxlength="2" required></br>
-
-      <label class="form_content_titles">Zip Code</label></br>
-      <input class="recommend_form_input" type="number" id="busZipCode" name="busZipCode" placeholder="Zip Code.. i.e. 12345" maxlength="5" required></br>
+      <textarea class="review_content" id="reviewMessage" name="reviewMessage" placeholder="Tell us about this place.." maxlength="255" required></textarea></br>
         
-      <input class="recommend_form_submit" type="submit" name="submit" value="Submit">
+      <input class="review_form_submit" type="submit" name="submit" value="Submit Review">
     </form>
 		</div>
   </div>

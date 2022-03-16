@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//using helper files
 	require ('login_functions.php');
+	require ('redirect_function.php');
 	require ('mysqli_connect.php');
 
 	//chcking the login
