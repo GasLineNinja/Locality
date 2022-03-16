@@ -1,13 +1,13 @@
 <?php
 
 $page_title = 'Sign Up';
-require ('redirect_user.php');
+require ('redirect_function.php');
 
 //Checking if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//connecting to the database
-	require ('mysqli_connect.php')
+	require ('mysqli_connect.php');
 
 	//Making an array to hold error messages
 	$errors = array();
