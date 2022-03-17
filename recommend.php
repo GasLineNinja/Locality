@@ -110,7 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   ?>
 
 
-
 <div class="row">
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
@@ -141,10 +140,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       <input class="recommend_form_input" type="text" id="busCity" name="busCity" value="<?php echo $_SESSION['userCity']?>" READONLY></br>
 
       <label class="form_content_titles">State</label></br>
-      <input class="recommend_form_input" type="text" id="busState" name="busState" placeholder="State located in.. i.e. NY, WI, CA.." maxlength="2" required></br>
+      <select class="recommend_form_input" id="busState" name="busState" maxlength="2" required>
+        <option placeholder="State located in..">Select State</option>
+        <option value="Alabama">AL</option>
+        <option value="Alaska">AK</option>
+        <option value="Arizona">AZ</option>
+        <option value="Arkansas">AR</option>
+        <option value="California">CA</option>
+        <option value="Colorado">CO</option>
+        <option value="Conneticut">CT</option>
+        <option value="Delaware">DE</option>
+        <option value="Florida">FL</option>
+        <option value="Georgia">GA</option>
+        <option value="Hawaii">HI</option>
+        <option value="Idaho">ID</option>
+        <option value="Illinois">IL</option>
+        <option value="Idiana">IN</option>
+        <option value="Iowa">IA</option>
+        <option value="Kansas">KS</option>
+        <option value="Kentucky">KY</option>
+        <option value="Louisiana">LA</option>
+        <option value="Maine">MA</option>
+        <option value="Maryland">MD</option>
+        <option value="Massachusetts">MA</option>
+        <option value="Michigan">MI</option>
+        <option value="Minnesota">MN</option>
+        <option value="Mississippi">MS</option>
+        <option value="Misouri">MO</option>
+        <option value="Montana">MT</option>
+        <option value="Nebraska">NE</option>
+        <option value="Nevada">MV</option>
+        <option value="New Hampshire">NH</option>
+        <option value="New Jersey">NJ</option>
+        <option value="New Mexico">NM</option>
+        <option value="New York">NY</option>
+        <option value="North Carolina">NC</option>
+        <option value="North Dakota">ND</option>
+        <option value="Ohio">OH</option>
+        <option value="Oklahoma">OK</option>
+        <option value="Oregon">OR</option>
+        <option value="Pennsylvania">PA</option>
+        <option value="Rhode Island">RI</option>
+        <option value="South Carolina">SC</option>
+        <option value="South Dakota">SD</option>
+        <option value="Tennessee">TN</option>
+        <option value="Texas">TX</option>
+        <option value="Utah">UT</option>
+        <option value="Vermont">VT</option>
+        <option value="Virginia">VA</option>
+        <option value="Washington">WA</option>
+        <option value="West Virgina">WV</option>
+        <option value="Wisconsin">WI</option>
+        <option value="Wyoming">WY</option>
+      </select></br>
 
       <label class="form_content_titles">Zip Code</label></br>
-      <input class="recommend_form_input" type="number" id="busZipCode" name="busZipCode" placeholder="Zip Code.. i.e. 12345" maxlength="5" required></br>
+      <input class="recommend_form_input" type="text" id="busZipCode" name="busZipCode" placeholder="Zip Code.. i.e. 12345" maxlength="5" required></br>
         
       <input class="recommend_form_submit" type="submit" name="submit" value="Submit">
     </form>
