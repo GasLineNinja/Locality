@@ -26,34 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$errors = array();
 
 	//checking for form information
-    //checking for business name, street address, city, state, and zip code
-	if (empty($_POST['busName'])){
-		$errors[] = 'Must enter business name to recommend it to others.';
-	}
-	else{
-		$busName = mysqli_real_escape_string($dbc, trim($_POST['busName']));
-	}
-
-    if (empty($_POST['busStreetAddress'])){
-        $errors[] = 'Must enter the street address so people can find your recommendation.';
-    }
-    else{
-        $busStreetAddress = mysqli_real_escape_string($dbc, trim($_POST['busStreetAddress']));
-    }
-
-    if (empty($_POST['busState'])){
-        $errors = 'Enter the state your recommendation is in.';
-    }
-    else{
-        $busState = mysqli_real_escape_string($dbc, trim($_POST['busState']));
-    }
-
-    if (empty($_POST['busZipCode'])){
-        $errors[] = 'Enter the zip code for your recommendation.';
-    }
-    else{
-        $busZipCode = mysqli_real_escape_string($dbc, trim($_POST['busZipCode']));
-    }
+	if (empty($_POST['reviewMessage'])){
+    $errors[] = "Please enter a review to help this business stand out.";
+  }
+  else{
+    $reviewMessage = mysqli_real_escape_string($dbc, trim($_POST['reviewMessage']));
+  }
 
 	//If nothing is wrong make query
 	if (empty($errors)){
@@ -126,11 +104,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   
   <div class="column middle">
   <div class="review_form">
-	<h1 class="form_info">Tell everyone why you love this place!</h1>
+	<h1 class="form_info">This place has already been recommended!</h1>
+  <h3 class="review_form_info">Add a review to help it get noticed.</h3>
     
     <form action="review.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
       
-      <textarea class="review_content" id="reviewMessage" name="reviewMessage" placeholder="Tell us about this place.." maxlength="255" required></textarea></br>
+      <textarea style="width: 75%; height: 250px;" class="review_content" id="reviewMessage" name="reviewMessage" placeholder="Tell us about this place.." maxlength="255" required></textarea></br>
         
       <input class="review_form_submit" type="submit" name="submit" value="Submit Review">
     </form>

@@ -112,7 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         //Otherwise produce errors
         else{
+          echo "$busID";
+          echo "$id";
+          echo "$reviewMessage";
           echo "There was an error. ";
+          echo "oops";
           echo mysqli_error($dbc);
         }
           mysqli_close($dbc);
@@ -123,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       //Otherwise return errors
       else{
         echo "There was an error. ";
+        echo "damnit";
         echo mysqli_error($dbc);
       }
         mysqli_close($dbc);
@@ -166,7 +171,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
               //Otherwise produce errors
               else{
+                echo "$busID";
+                echo "$id";
+                echo "$reviewMessage";
                 echo "There was an error. ";
+                echo "oops";
                 echo mysqli_error($dbc);
               }
                 mysqli_close($dbc);
@@ -177,6 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Produce errors
             else{
               echo "There was an error. ";
+              echo "damn";
               echo mysqli_error($dbc);
             }
               mysqli_close($dbc);
@@ -198,6 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Otherwise list errors
         else{
           echo "There was an error. ";
+          echo "shit";
           echo mysqli_error($dbc);
         }
           mysqli_close($dbc);
@@ -252,7 +263,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   
   <div class="column middle">
   <div class="recommend_form">
-	<h1 class="form_info">Recommend your favorite spot!</h1>
+	<h1 class="form_info">Your recommendation has been saved! Would you like to recommened another place?
+    </h1>
     
     <form action="recommend.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
       
