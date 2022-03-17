@@ -415,9 +415,9 @@ a{
 }
 
 .review_content{
-  resize: none;
+  resize: vertical;
   width: 75%; 
-  height: 250px;
+  height: 200px;
   padding: 12px 12px 12px 12px;
   display: inline-block;
   border: 1px solid #ccc;
