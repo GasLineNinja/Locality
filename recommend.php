@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = $_SESSION['userID'];
     $username = $_SESSION['username'];
     $busCity = $_SESSION['userCity'];
+    
 
 	//Making an array to hold error messages
 	$errors = array();
@@ -34,63 +35,159 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$busName = mysqli_real_escape_string($dbc, trim($_POST['busName']));
 	}
 
-    if (empty($_POST['busStreetAddress'])){
-        $errors[] = 'Must enter the street address so people can find your recommendation.';
-    }
-    else{
-        $busStreetAddress = mysqli_real_escape_string($dbc, trim($_POST['busStreetAddress']));
-    }
+  if (empty($_POST['busStreetAddress'])){
+    $errors[] = 'Must enter the street address so people can find your recommendation.';
+  }
+  else{
+    $busStreetAddress = mysqli_real_escape_string($dbc, trim($_POST['busStreetAddress']));
+  }
 
-    if (empty($_POST['busState'])){
-        $errors = 'Enter the state your recommendation is in.';
-    }
-    else{
-        $busState = mysqli_real_escape_string($dbc, trim($_POST['busState']));
-    }
+  if (empty($_POST['busState'])){
+    $errors = 'Enter the state your recommendation is in.';
+  }
+  else{
+    $busState = mysqli_real_escape_string($dbc, trim($_POST['busState']));
+  }
 
-    if (empty($_POST['busZipCode'])){
-        $errors[] = 'Enter the zip code for your recommendation.';
-    }
-    else{
-        $busZipCode = mysqli_real_escape_string($dbc, trim($_POST['busZipCode']));
-    }
+  if (empty($_POST['busZipCode'])){
+    $errors[] = 'Enter the zip code for your recommendation.';
+  }
+  else{
+    $busZipCode = mysqli_real_escape_string($dbc, trim($_POST['busZipCode']));
+  }
+
+  if (empty($_POST['busPrice'])){
+    $errors = 'Enter price range.';
+  }
+  else{
+    $busPrice = mysqli_real_escape_string($dbc, trim($_POST['busPrice']));
+  }
+
+  if (empty($_POST['busType'])){
+    $errors = 'Enter the type of place this is.';
+  }
+  else{
+    $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
+  }
+
+  if (empty($_POST['reviewMessage'])){
+    $errors[] = "Please enter a review to help this business stand out.";
+  }
+  else{
+    $reviewMessage = mysqli_real_escape_string($dbc, trim($_POST['reviewMessage']));
+  }
 
 	//If nothing is wrong make query
 	if (empty($errors)){
+    
+    $query = "SELECT busName, busZipCode FROM Business WHERE busName='$busName' AND busZipCode='$busZipCode'";
 
-		$query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode) 
-		VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode')";
+    $result = @mysqli_query($dbc, $query);
 
-		$result = @mysqli_query($dbc, $query);
+    /**********************************Having issues here*****************************************/
+    if (mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_assoc($result)){
+        $busReviewCount = $row["busReviewCount"] + 1;
+      }
+      
+      $query = "INSERT INTO Business (busReviewCount) VALUE ('$busReviewCount')";
 
-		//If the query works relay message
-		if ($result){
+      $result = @mysqli_query($dbc, $query);
 
-      redirect_user ('review.php');
+      if ($result){
+        redirect_user ('recommend.php');
+        echo "This place has already been recommended! The recommendation count will be incremented,";
+      }
+      else{
+        echo "There was an error. ";
+        echo "damnit";
+        echo mysqli_error($dbc);
+      }
+        mysqli_close($dbc);
+      
+        exit();
+    }
+    /*********************************************************************************************/
 
-			echo "<p>Thank you $username your favorite spot has been saved!</p>";
-			echo '<p>Would you like to <a href="recommend.php">recommend</a> another business?</P>';
-			echo '<p>Or go back to the <a href="home.php">Homepage</a>?';
-		}
+    else{
+      $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType) 
+      VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType')";
 
-		//Otherwise list errors
-		else{
-			echo "There was an error. ";
-			echo mysqli_error($dbc);
-		}
-		mysqli_close($dbc);
+      $result = @mysqli_query($dbc, $query);
 
-		exit();
-	}
-	else{
+      //If the query works relay message
+      if ($result){
 
-		echo "There were errors.";
-		foreach($errors as $message){
-			echo "$message";
-		}
-		echo "Try again";
-	}
+        $query = "SELECT busID FROM Business WHERE busName='$busName'";
+
+        $result = @mysqli_query($dbc, $query);
+
+        if (mysqli_num_rows($result) > 0){
+          while($row = mysqli_fetch_assoc($result)){
+            $busID = $row["busID"];
+          }
+
+          if ($result){
+
+              $query = "INSERT INTO Review (userID, busID, reviewMessage)
+              VALUES ('$id', '$busID', '$reviewMessage')";
+        
+              $result = @mysqli_query($dbc, $query);
+            
+              if ($result){
+                redirect_user ('recommend.php');
+              }
+              else{
+                echo "$busID";
+                echo "$id";
+                echo "$reviewMessage";
+                echo "There was an error. ";
+                echo "oops";
+                echo mysqli_error($dbc);
+              }
+                mysqli_close($dbc);
+          
+                exit();
+            }
+            else{
+              echo "There was an error. ";
+              echo "damn";
+              echo mysqli_error($dbc);
+            }
+              mysqli_close($dbc);
+        
+              exit();
+          
+          }
+          else{
+            echo "No data found";
+          }
+
+          /*echo "<p>Thank you $username your favorite spot has been saved!</p>";
+          echo '<p>Would you like to <a href="recommend.php">recommend</a> another business?</P>';
+          echo '<p>Or go back to the <a href="home.php">Homepage</a>?';*/
+        }
+        //Otherwise list errors
+        else{
+          echo "There was an error. ";
+          echo "shit";
+          echo mysqli_error($dbc);
+        }
+          mysqli_close($dbc);
+
+          exit();
+      
+    }
+  }
+  else{
+    echo "There were errors.";
+    foreach($errors as $message){
+      echo "$message";
+    }
+    echo "Try again";
+  }
 }
+
 ?>
 
 
@@ -130,8 +227,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     <form action="recommend.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
       
-      <label class="form_content_titles">Business Name</label></br>
-      <input class="recommend_form_input" type="text" id="busName" name="busName" placeholder="Your favorite business's name goes here.." value="" required></br>
+      <label class="form_content_titles">Place's Name</label></br>
+      <input class="recommend_form_input" type="text" id="busName" name="busName" placeholder="Your favorite place's name goes here.." value="" required></br>
 
       <label class="form_content_titles">Address</label></br>
       <input class="recommend_form_input" type="text" id="busStreetAddress" name="busStreetAddress" placeholder="Let people know where it is.." value="" required></br>
@@ -196,6 +293,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
       <label class="form_content_titles">Zip Code</label></br>
       <input class="recommend_form_input" type="text" id="busZipCode" name="busZipCode" placeholder="Zip Code.. i.e. 12345" maxlength="5" required></br>
+
+      <label class="form_content_titles">Price</label></br>
+      <select class="recommend_form_input" id="busPrice" name="busPrice" required>
+        <option placeholder="Select price">Select Price</option>
+        <option placeholder="Price">FREE!!</option>
+        <option placeholder="Price">$</option>
+        <option placeholder="Price">$$</option>
+        <option placeholder="Price">$$$</option>
+        <option placeholder="Price">$$$$</option>
+      </select></br>
+
+      <label class="form_content_titles">Type of place</label></br>
+      <select class="recommend_form_input" id="busType" name="busType" required>
+        <option placeholder="Select type">Select type pf place</option>
+        <option placeholder="Restaurant">Restaurant</option>
+        <option placeholder="Bar">Bar</option>
+        <option placeholder="Cafe">Cafe</option>
+        <option placeholder="Park">Park</option>
+        <option placeholder="Theater">Theater</option>
+        <option placeholder="Sport Venue">Sport Venue</option>
+      </select></br>
+
+      <label class="form_content_titles">Review</label></br>
+      <textarea style="width: 75%; height: 250px;" class="review_content" id="reviewMessage" name="reviewMessage" placeholder="Tell everyone why you love this place!" maxlength="255" required></textarea></br>
         
       <input class="recommend_form_submit" type="submit" name="submit" value="Submit">
     </form>
