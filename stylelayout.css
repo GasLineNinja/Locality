@@ -401,16 +401,6 @@ a{
 	transition: all 0.2s ease-in;
 }
 
-.textarea {
-  width: 100%; 
-  height:400px;
-  padding: 12px 20px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  box-sizing: border-box;
-}
-
 .review_form_info{
 	color: #202ea8;
 	margin: 12px 25px 3px 25px;
@@ -422,4 +412,15 @@ a{
 	padding: 15px 5px 10px 5px;
 	background-color: white;
 	border-radius: 14px;
+}
+
+.review_content{
+  resize: none;
+  width: 75%; 
+  height: 250px;
+  padding: 12px 12px 12px 12px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  box-sizing: border-box'
 }

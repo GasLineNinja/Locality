@@ -243,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <ul class="sideNav">
         <a href="home.php"><li class="nav_select"><p class="nav_txt">Home</p></li></a>
         <a href="places.php"><li class="nav_select"><p class="nav_txt">Where To Go</p></li></a>
-        <!--<a href="recommend.php"><li class="nav_active"><p>Recommend</p></li></a>-->
+        <a href="recommend.php"><li class="nav_active"><p>Recommend a Spot</p></li></a>
         <a href="myrecommendations.php"><li class="nav_select"><p class="nav_txt">My Recommendations</p></li></a>
         <a href="signout.php"><li class="nav_select"><p class="nav_txt">Sign Out</p></li></a>
       </ul>
@@ -347,7 +347,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       </select></br>
 
       <label class="form_content_titles">Review</label></br>
-      <textarea style="width: 75%; height: 250px;" class="review_content" id="reviewMessage" name="reviewMessage" placeholder="Tell everyone why you love this place!" maxlength="255" required></textarea></br>
+      <textarea class="review_content" name="reviewMessage" placeholder="Tell everyone why you love this place!" maxlength="512" required></textarea></br>
         
       <input class="recommend_form_submit" type="submit" name="submit" value="Submit">
     </form>
