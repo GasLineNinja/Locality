@@ -242,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <div>
     <ul class="sideNav">
         <a href="home.php"><li class="nav_select"><p class="nav_txt">Home</p></li></a>
-        <a href="reviews_lg.php"><li class="nav_select"><p class="nav_txt">Where To Go</p></li></a>
+        <a href="spots_piv.php"><li class="nav_select"><p class="nav_txt">Where To Go</p></li></a>
         <a href="recommend.php"><li class="nav_active"><p>Recommend a Spot</p></li></a>
         <a href="myrecommendations.php"><li class="nav_select"><p class="nav_txt">My Recommendations</p></li></a>
         <a href="signout.php"><li class="nav_select"><p class="nav_txt">Sign Out</p></li></a>
