@@ -69,6 +69,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
   }
 
+  if(!empty($_POST['busTags'])){
+    $busTags = mysqli_real_escape_string($dbc, trim($_POST['busTags']));
+  }
+  
+  if (empty($_POST['busCovidRules'])){
+    $errors = 'Enter whether this place follows COVID rules.';
+  }
+  else{
+    $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
+  }
+  
+  if (empty($_POST['busCovidRules'])){
+    $errors = 'Enter whether this place follows COVID rules.';
+  }
+  else{
+    $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
+  }
+
   if (empty($_POST['reviewMessage'])){
     $errors[] = "Please enter a review to help this business stand out.";
   }
@@ -79,7 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//If nothing is wrong make query to see if business has already been added
 	if (empty($errors)){
     
-    $query = "SELECT busID, busName, busZipCode, busReviewCount FROM Business WHERE busName='$busName' AND busZipCode='$busZipCode'";
+    $query = "SELECT busID, busName, busZipCode, busCity, busReviewCount FROM Business WHERE busName='$busName' 
+    AND busZipCode='$busZipCode' AND busCity='$busCity'";
 
     $result = @mysqli_query($dbc, $query);
 
@@ -132,8 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     //If business has not been recommended before insert form info into database
     else{
-      $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType) 
-      VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType')";
+      $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType, busTags, busCovidRules) 
+      VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType', '$busTags', '$busCovidRules')";
 
       $result = @mysqli_query($dbc, $query);
 
@@ -344,6 +363,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <option placeholder="Attraction">Attraction</option>
         <option placeholder="Theater">Theater</option>
         <option placeholder="Sport Venue">Sport Venue</option>
+      </select></br>
+
+      <label class="form_content_titles">Tags</label></br>
+      <select class="recommend_form_input" id="busTags" name="busTags" multiple>
+        <option style="font-weight: bold;" placeholder="Instructions">Hold control (ctrl) to pick multiple tags</option>
+        <option placeholder="Kid Friendly">Kid Friendly</option>
+        <option placeholder="Dog Friendly">Dog Friendly</option>
+        <option placeholder="Date Night">Date Night</option>
+        <option placeholder="Vegan Friendly">Vegan Friendly</option>
+        <option placeholder="Vegetarian Friendly">Vegetarian Friendly</option>
+        <option placeholder="Family Fun">Family Fun</option>
+        <option placeholder="Outdoors/Nature">Outdoors/Nature</option>
+        <option placeholder="Local Only">Local Only</option>
+      </select></br>
+
+      <label class="form_content_titles">Follows COVID Portocols</label></br>
+      <select class="recommend_form_input" id="busCovidRules" name="busCovidRules" required>
+        <option placeholder="Select type">Are COVID rule in place</option>
+        <option placeholder="Yes">Yes</option>
+        <option placeholder="No">No</option>
       </select></br>
 
       <label class="form_content_titles">Review</label></br>
