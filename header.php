@@ -14,8 +14,8 @@
             <a style='margin-left:-20px' href='signup.php' class ='signup'>Sign Up</a>
         <div class='search-container'>
           <form autocomplete='off'>
-						<button class='search_btn' type='submit'>Search</button>
-            <input class='main_search'  type='text' placeholder='Search..' name='search'>
+						<input class='search_btn' type='submit' name='submit' value='Search'>
+            <input class='main_search'  type='search' placeholder='Search..' name='search'>
           </form>
         </div>
       </div>
@@ -31,8 +31,8 @@
             <a style='margin-left:-20px' href='recommend.php' class ='signup'>Recommend a Spot</a>
         <div class='search-container'>
           <form autocomplete='off'>
-						<button class='search_btn' type='submit'>Search</button>
-            <input class='main_search'  type='text' placeholder='Search..' name='search'>
+          <input class='search_btn' type='submit' name='submit' value='Search'>
+            <input class='main_search'  type='search' placeholder='Search..' name='search'>
           </form>
         </div>
       </div>

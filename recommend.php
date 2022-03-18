@@ -412,7 +412,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <option placeholder="Local Only">Local Only</option> -->
       <!-- </select></br> --></br>
 
-      <label class="form_content_titles">Follows COVID Portocols</label></br>
+      <label class="form_content_titles">Follows COVID Protocols</label></br>
       <select class="recommend_form_input" id="busCovidRules" name="busCovidRules" required>
         <option placeholder="Select type">Are COVID rule in place</option>
         <option placeholder="Yes">Yes</option>
