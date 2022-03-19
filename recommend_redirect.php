@@ -206,10 +206,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
           else{
             echo "No data found";
           }
-
-          /*echo "<p>Thank you $username your favorite spot has been saved!</p>";
-          echo '<p>Would you like to <a href="recommend.php">recommend</a> another business?</P>';
-          echo '<p>Or go back to the <a href="home.php">Homepage</a>?';*/
         }
 
         //Otherwise list errors
@@ -221,7 +217,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
           mysqli_close($dbc);
 
           exit();
-      
     }
   }
 
