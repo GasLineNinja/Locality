@@ -5,8 +5,7 @@
 
  $id = $_SESSION['userID'];
 
- $query = "SELECT Business.busName, Business.busStreetAddress, Business.busCity, Business.busState, Business.busZipCode, 
- Business.busReviewCount, Business.busPrice, Business.busType, Business.busCovidRules, Review.reviewMessage
+ $query = "SELECT Business.busName, Review.reviewMessage
  FROM Business INNER JOIN Review ON Business.busID = Review.busID WHERE Review.userID = '$id'";
 
  $result = @mysqli_query($dbc, $query);
@@ -19,30 +18,6 @@
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      echo ' <tr>
               <td>' . $row['busName'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busStreetAddress'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busCity'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busState'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busZipCode'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busPrice'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busType'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busCovidRules'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busReviewCount'] . '</td>
             </tr>
             <tr>
               <td>' . $row['reviewMessage'] . '</td>

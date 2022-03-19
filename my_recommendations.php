@@ -25,8 +25,6 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
     include('header.php');
   ?>
 
-
-
 <div class="row">
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->

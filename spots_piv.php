@@ -8,7 +8,6 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   header("Location: login.php");
   exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +25,6 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
     include('header.php');
   ?>
 
-
-
 <div class="row">
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
@@ -36,7 +33,7 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
         <a href="home.php"><li class="nav_select"><p class="nav_txt">Home</p></li></a>
         <a href="spots_piv.php"><li class="nav_active"><p>Where To Go</p></li></a>
         <a href="recommend.php"><li class="nav_select"><p class="nav_txt">Recommend a Spot</p></li></a>
-        <a href="myrecommendations.php"><li class="nav_select"><p class="nav_txt">My Recommendations</p></li></a>
+        <a href="my_recommendations.php"><li class="nav_select"><p class="nav_txt">My Recommendations</p></li></a>
         <a href="signout.php"><li class="nav_select"><p class="nav_txt">Sign Out</p></li></a>
       </ul>
     </div>
@@ -44,7 +41,7 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   
   <div class="column middle">
     <div class="content">
-      <p>!---Reviews Here---!</p>
+      <?php include('get_reviews.php');?>
     </div>
   </div>
   
