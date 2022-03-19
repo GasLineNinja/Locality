@@ -371,42 +371,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <input type="checkbox">
         <label class="tags_container">Kid Friendly
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Pet Friendly
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Date Night
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Vegan Friendly
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Vegetarian Friendly
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Family Fun
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Outdoors/Nature
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <input type="checkbox">
         <label class="tags_container">Local Only
           <span class="tags_checkmark"></span>
-        </label></br>
+        </label>
 
         <!-- <option style="font-weight: bold;" placeholder="Instructions">Hold control (ctrl) to pick multiple tags</option>
         <option placeholder="Kid Friendly">Kid Friendly</option>

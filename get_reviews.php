@@ -17,7 +17,8 @@
    echo '<table>';
 
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-     echo ' <tr>
+     echo '
+            <tr>
               <td>' . $row['busName'] . '</td>
             </tr>
             <tr>
@@ -46,7 +47,8 @@
             </tr>
             <tr>
               <td>' . $row['reviewMessage'] . '</td>
-            </tr>';
+            </tr>
+          ';
    }
    echo '</table></br>';
 

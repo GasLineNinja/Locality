@@ -493,3 +493,9 @@ a{
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.content{
+	padding: 15px 5px 10px 5px;
+	background-color: white;
+	border-radius: 14px;
+}
