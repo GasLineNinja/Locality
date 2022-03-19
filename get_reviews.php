@@ -7,7 +7,7 @@
 
  $query = "SELECT Business.busName, Business.busStreetAddress, Business.busCity, Business.busState, Business.busZipCode, 
  Business.busReviewCount, Business.busPrice, Business.busType, Business.busCovidRules, Review.reviewMessage
- FROM Business INNER JOIN Review ON Business.busID = Review.busID";
+ FROM Business LEFT OUTER JOIN Review ON Business.busID = Review.busID";
 
  $result = @mysqli_query($dbc, $query);
 
