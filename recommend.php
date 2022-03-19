@@ -368,38 +368,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       <!-- Tags Code -->
       <label class="form_content_titles">Tags</label></br></br>
       <!-- <select class="recommend_form_input" id="busTags" name="busTags" multiple> -->
+        <input type="checkbox">
         <label class="tags_container">Kid Friendly
-          <input type="tags_checkbox" checked="checked">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Pet Friendly
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Date Night
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Vegan Friendly
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Vegetarian Friendly
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Family Fun
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Outdoors/Nature
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
+
+        <input type="checkbox">
         <label class="tags_container">Local Only
-          <input type="tags_checkbox">
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <!-- <option style="font-weight: bold;" placeholder="Instructions">Hold control (ctrl) to pick multiple tags</option>
         <option placeholder="Kid Friendly">Kid Friendly</option>
