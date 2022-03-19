@@ -361,47 +361,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       </select></br>
 
       <!-- Tags Code -->
-      <label class="form_content_titles">Tags</label></br></br>
+      <label class="form_content_titles">Tags</label></br>
       <!-- <select class="recommend_form_input" id="busTags" name="busTags" multiple> -->
+        <div class="checkbox_form">
         <input type="checkbox">
         <label class="tags_container">Kid Friendly
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Pet Friendly
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Date Night
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Vegan Friendly
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Vegetarian Friendly
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Family Fun
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Outdoors/Nature
           <span class="tags_checkmark"></span>
-        </label>
+        </label></br>
 
         <input type="checkbox">
         <label class="tags_container">Local Only
-          <span class="tags_checkmark"></span>
-        </label>
+        <span class="tags_checkmark"></span>
+        </label></br>
+        </div>
 
         <!-- <option style="font-weight: bold;" placeholder="Instructions">Hold control (ctrl) to pick multiple tags</option>
         <option placeholder="Kid Friendly">Kid Friendly</option>
@@ -412,7 +414,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <option placeholder="Family Fun">Family Fun</option>
         <option placeholder="Outdoors/Nature">Outdoors/Nature</option>
         <option placeholder="Local Only">Local Only</option> -->
-      <!-- </select></br> --></br>
+      <!-- </select></br> -->
 
       <label class="form_content_titles">Follows COVID Protocols</label></br>
       <select class="recommend_form_input" id="busCovidRules" name="busCovidRules" required>

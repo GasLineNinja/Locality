@@ -39,8 +39,8 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
     </div>
   </div>
   
-  <div class="column middle">
-    <div class="content">
+  <div>
+    <div class="column middle">
       <?php include('get_reviews.php');?>
     </div>
   </div>

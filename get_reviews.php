@@ -18,44 +18,30 @@
  $numRows = mysqli_num_rows($result);
 
  //while there is data populate a table with it
- if ($numRows > 0){
-   echo '<table>';
+ if ($numRows > 0){ 
+   echo '';
 
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      echo '
-            <tr>
-              <td>' . $row['busName'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busStreetAddress'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busCity'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busState'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busZipCode'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busPrice'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busType'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busCovidRules'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['busReviewCount'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['reviewMessage'] . '</td>
-            </tr>
+          <div class="pull_content">
+            <h1>' . $row['busName'] . '</h1><p>Count: '. $row['busReviewCount'] .'</p>
+            
+            <p>' . $row['busStreetAddress'] . '</p>
+            <p>' . $row['busCity'] . ', ' . $row['busState'] . ' ' . $row['busZipCode'] . '</p>
+
+            <p>Price: ' . $row['busPrice'] . '</p>
+            <p>Type: ' . $row['busType'] . '</p>
+            <p>Following COVID-19 Guildlines: ' . $row['busCovidRules'] . '</p>
+            
+            <div class="pulled_reivew">
+              <h4>Review:</h4>
+              <p>' . $row['reviewMessage'] . '</p>
+            </div>
+          </div>
+          </br>
           ';
    }
-   echo '</table></br>';
+   echo '';
 
    mysqli_free_result($result);
  }
