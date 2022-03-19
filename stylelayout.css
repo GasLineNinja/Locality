@@ -449,3 +449,59 @@ a{
 	border-radius: 14px;
   text-align: left;
 }
+
+.review_image{
+  max-width: 250px;
+  max-height: 200px;
+	border-radius: 14px;
+	float: left;
+	margin-right: 10px;
+}
+
+.pulled_reivew{
+  padding: 8px;
+	background-color: rgb(226, 226, 226);
+	border-radius: 14px;
+  text-align: left;
+  font-size: 20px; 
+}
+
+.review_review{
+	clear: left;
+  padding-top: 15px;
+  font-size: 23px; 
+  font-weight: 700; 
+  font-style: italic;
+}
+
+.review_address{
+  float: left;
+  padding-left: 3px;
+  color: rgb(73, 73, 73);
+  font-size: 18px;  
+  font-style: italic;
+}
+
+.review_count{
+  clear: left;
+  padding-left: 10px;
+	padding-top: 8px;
+  color: rgb(104, 104, 104);
+  font-size: 16px;  
+  font-style: italic;
+	
+}
+
+.review_des{
+	padding-top: 3px;
+	padding-left: 10px;
+  color: rgb(65 65 65);
+  font-size: 22px;  
+  font-weight:540;
+}
+
+.review_busName{
+  color: rgb(46, 46, 46);
+  font-size: 48px;  
+  font-style: bold; 
+}
