@@ -18,17 +18,25 @@
 
  //while there is data being pulled populate a table with that data
  if ($numRows > 0){
-   echo '<table>';
+   echo '';
 
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-     echo ' <tr>
-              <td>' . $row['busName'] . '</td>
-            </tr>
-            <tr>
-              <td>' . $row['reviewMessage'] . '</td>
-            </tr>';
+     echo '
+     <div class="pull_content">
+       
+       <img class="review_image" src="uploads/placeholder.png" alt="placeholder">
+
+       <h1 class="review_busName">' . $row['busName'] . '</h1>
+
+       <h4 class="review_review">Review:</h4>
+       <div class="pulled_reivew">
+         <p>' . $row['reviewMessage'] . '</p>
+       </div>
+     </div>
+     </br>
+     ';
    }
-   echo '</table></br>';
+   echo '';
 
    mysqli_free_result($result);
  }
