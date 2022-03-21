@@ -40,7 +40,7 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   </div>
   
   <div class="column middle">
-    <div class="content">
+    <div>
       <?php include('get_my_recommendations.php');?>
     </div>
   </div>

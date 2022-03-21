@@ -22,18 +22,18 @@
 
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      echo '
-     <div class="pull_content">
-       
-       <img class="review_image" src="uploads/placeholder.png" alt="placeholder">
+        <div class="pull_content">
 
-       <h1 class="review_busName">' . $row['busName'] . '</h1>
+          <img class="review_image" src="uploads/placeholder.png" alt="placeholder">
 
-       <h4 class="review_review">Review:</h4>
-       <div class="pulled_reivew">
-         <p>' . $row['reviewMessage'] . '</p>
-       </div>
-     </div>
-     </br>
+          <h1 class="review_busName">' . $row['busName'] . '</h1>
+
+          <h4 class="review_review">Review:</h4>
+          <div class="pulled_reivew">
+            <p>' . $row['reviewMessage'] . '</p>
+          </div>
+        </div>
+        </br>
      ';
    }
    echo '';
