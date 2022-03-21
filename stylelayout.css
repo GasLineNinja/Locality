@@ -41,6 +41,7 @@ body {
   float: right;
 	font-weight: 750;
 	transition: all 0.2s ease-out;
+	box-shadow: 4px 4px #182178;
 }
 .signup{
   color: #005704;
@@ -53,6 +54,7 @@ body {
   float: right;
 	font-weight: 750;
 	transition: all 0.2s ease-out;
+	box-shadow: 4px 4px #006c5d;
 }
 
 .signup:hover{
@@ -76,6 +78,7 @@ body {
 	border-radius: 14px;
   margin-left: 0px;
   margin-top: -200px;
+	box-shadow: 4px 4px #182178;
 }
 
 .search_btn[type=submit]{
@@ -89,6 +92,7 @@ body {
   cursor: pointer;
 	transition: all 0.2s ease-out;
   margin-top: -200px;
+	box-shadow: 4px 4px #006c5d;
 }
 
 .search_btn[type=submit]:hover {
@@ -184,6 +188,7 @@ body {
 	padding: 15px 5px 10px 5px;
 	background-color: white;
 	border-radius: 14px;
+  box-shadow: 8px 8px #2f51b0;
 }
 
 .login_form_input, select {
@@ -217,6 +222,7 @@ body {
 	padding: 15px 5px 10px 5px;
 	background-color: white;
 	border-radius: 14px;
+  box-shadow: 8px 8px #2f51b0;
 }
 
 .signUp_form_input, select {
@@ -287,6 +293,7 @@ body {
 	padding: 15px 5px 10px 5px;
 	background-color: white;
 	border-radius: 14px;
+  box-shadow: 8px 8px #2f51b0;
 }
 
 .recommend_form_input, select {
@@ -448,4 +455,63 @@ a{
 	background-color: white;
 	border-radius: 14px;
   text-align: left;
+  box-shadow: 8px 8px #2f51b0;
+}
+
+.review_image{
+  max-width: 250px;
+  max-height: 200px;
+	border-radius: 14px;
+	float: left;
+	margin-right: 10px;
+}
+
+.pulled_reivew{
+  padding: 8px;
+	background-color: rgb(226, 226, 226);
+	border-radius: 14px;
+  text-align: left;
+  font-size: 20px; 
+  color:rgb(46, 46, 46);
+}
+
+.review_review{
+	clear: left;
+  padding-top: 15px;
+  font-size: 23px; 
+  font-weight: 700; 
+  font-style: italic;
+  color: rgb(46, 46, 46);
+}
+
+.review_address{
+  float: left;
+  padding-left: 3px;
+  color: rgb(73, 73, 73);
+  font-size: 18px;  
+  font-style: italic;
+}
+
+.review_count{
+  clear: left;
+  padding-left: 10px;
+	padding-top: 8px;
+  color: rgb(104, 104, 104);
+  font-size: 16px;  
+  font-style: italic;
+	
+}
+
+.review_des{
+	padding-top: 3px;
+	padding-left: 10px;
+  color: rgb(65 65 65);
+  font-size: 22px;  
+  font-weight:540;
+}
+
+.review_busName{
+  color: rgb(46, 46, 46);
+  font-size: 48px;  
+  font-style: bold; 
 }

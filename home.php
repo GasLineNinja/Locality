@@ -44,7 +44,7 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   </div>
   
   <div class="column middle">
-    <div class="content">
+    <div class="pull_content">
       <p>We need content of some sort here</p>
       <!--All these breaks are just to test the scrolling-->
         </br>
