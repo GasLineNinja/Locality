@@ -24,17 +24,21 @@
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      echo '
           <div class="pull_content">
-            <h1>' . $row['busName'] . '</h1><p>Count: '. $row['busReviewCount'] .'</p>
             
-            <p>' . $row['busStreetAddress'] . '</p>
-            <p>' . $row['busCity'] . ', ' . $row['busState'] . ' ' . $row['busZipCode'] . '</p>
+            <img class="review_image" src="uploads/placeholder.png" alt="placeholder">
 
-            <p>Price: ' . $row['busPrice'] . '</p>
-            <p>Type: ' . $row['busType'] . '</p>
-            <p>Following COVID-19 Guildlines: ' . $row['busCovidRules'] . '</p>
+            <h1 class="review_busName">' . $row['busName'] . '</h1>
             
+            <p class="review_address">' . $row['busStreetAddress'] . '</p>
+            <p class="review_address">' . $row['busCity'] . ', <span style="text-transform: uppercase;">' . $row['busState'] . '<span> ' . $row['busZipCode'] . '</p>
+            <p class="review_count">Currently <span style="color:black;font-style: bold;">'. $row['busReviewCount'] .'</span> user(s) have recommended this spot!</p>
+
+            <p class="review_des">Price: <span style="color:rgb(61, 206, 32)">' . $row['busPrice'] . '</span></p>
+            <p class="review_des">Type: ' . $row['busType'] . '</p>
+            <p class="review_des">Following COVID-19 Guildlines: '. $row['busCovidRules'] .'</p>
+    
+            <h4 class="review_review">Review:</h4>
             <div class="pulled_reivew">
-              <h4>Review:</h4>
               <p>' . $row['reviewMessage'] . '</p>
             </div>
           </div>
