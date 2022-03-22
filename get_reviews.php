@@ -9,7 +9,7 @@
  //querying database for all place information as well as the review for those places
  $query = "SELECT Business.busName, Business.busStreetAddress, Business.busCity, Business.busState, Business.busZipCode, 
  Business.busReviewCount, Business.busPrice, Business.busType, Business.busCovidRules, Review.reviewMessage
- FROM Business LEFT OUTER JOIN Review ON Business.busID = Review.busID";
+ FROM Business INNER JOIN Review ON Business.busID = Review.busID";
 
  //checking query result
  $result = @mysqli_query($dbc, $query);
