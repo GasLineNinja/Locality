@@ -94,6 +94,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $reviewMessage = mysqli_real_escape_string($dbc, trim($_POST['reviewMessage']));
   }
 
+  ///// THIS IS THE UPLOAD CODE
+  $filepath = "uploads/" . $_FILES["file"]["name"];
+
+  if(file_exists("uploads/" . $_FILES["file"]["name"])) 
+  {
+   
+  } 
+  else 
+  {
+    $temp = explode(".", $_FILES["file"]["name"]);
+    $newfilename = round(microtime(true)) . '.' . end($temp);
+    move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $newfilename);
+  }
+  
+
 	//If nothing is wrong make query to see if business has already been added
 	if (empty($errors)){
     
@@ -126,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         //If all is good redirect user to fresh recommend page
         if ($result){
-          redirect_user('recommend_redirect.php');
+          redirect_user('my_recommendations.php');
         }
 
         //Otherwise produce errors
@@ -268,7 +283,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   <div class="recommend_form">
 	<h1 class="form_info">Recommend your favorite spot!</h1>
     
-    <form action="recommend.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
+    <form action="recommend.php" enctype="multipart/form-data" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
       
       <label class="form_content_titles">Place's Name</label></br>
       <input class="recommend_form_input" type="text" id="busName" name="busName" placeholder="Your favorite place's name goes here.." value="" required></br>
@@ -422,6 +437,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <option placeholder="Yes">Yes</option>
         <option placeholder="No">No</option>
       </select></br>
+
+      <!-- UPLOAD IMAGE CODE -->
+      <label class="form_content_titles">Select an Image</label></br>
+      <input type="file" class="file_select_btn" name="file" required></br>
 
       <label class="form_content_titles">Review</label></br>
       <textarea class="review_content" name="reviewMessage" placeholder="Tell everyone why you love this place!" maxlength="512" required></textarea></br>

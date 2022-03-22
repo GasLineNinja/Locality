@@ -515,3 +515,39 @@ a{
   font-size: 48px;  
   font-style: bold; 
 }
+
+.error {
+  font-weight: bold;
+  color: #C00;
+}
+
+input[type=file]::file-selector-button{
+  background-color: #07f813; 
+  border: 1px solid #005704;
+  color: #005704;
+  padding: 6px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 6px;
+	margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 14px;
+	box-shadow: 2px 2px #006c5d;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #a2ffa6; 
+  border: 1px solid #005704;
+  color: #005704;
+  padding: 6px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 6px;
+	margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 14px;
+}
