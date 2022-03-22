@@ -8,244 +8,249 @@ require ('redirect_function.php');
 
 //Redirect user to login screen if not signed in 
 if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']))){
-  header("Location: login.php");
-  exit();
+header("Location: login.php");
+exit();
 }
 
 //Checking if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  //connecting to the database
+  require ('mysqli_connect.php');
 
-	//connecting to the database
-	require ('mysqli_connect.php');
+  $id = $_SESSION['userID'];
+  $username = $_SESSION['username'];
+  $busCity = $_SESSION['userCity'];
+  
 
-    $id = $_SESSION['userID'];
-    $username = $_SESSION['username'];
-    $busCity = $_SESSION['userCity'];
-    
+  //Making an array to hold error messages
+  $errors = array();
 
-	//Making an array to hold error messages
-	$errors = array();
-
-	//checking for form information
-	if (empty($_POST['busName'])){
-		$errors[] = 'Must enter business name to recommend it to others.';
-	}
-	else{
-		$busName = mysqli_real_escape_string($dbc, trim($_POST['busName']));
-	}
-
-  if (empty($_POST['busStreetAddress'])){
-    $errors[] = 'Must enter the street address so people can find your recommendation.';
+  //checking for form information
+  if (empty($_POST['busName'])){
+      $errors[] = 'Must enter business name to recommend it to others.';
   }
   else{
-    $busStreetAddress = mysqli_real_escape_string($dbc, trim($_POST['busStreetAddress']));
+      $busName = mysqli_real_escape_string($dbc, trim($_POST['busName']));
+  }
+
+  if (empty($_POST['busStreetAddress'])){
+      $errors[] = 'Must enter the street address so people can find your recommendation.';
+  }
+  else{
+      $busStreetAddress = mysqli_real_escape_string($dbc, trim($_POST['busStreetAddress']));
   }
 
   if (empty($_POST['busState'])){
-    $errors = 'Enter the state your recommendation is in.';
+      $errors = 'Enter the state your recommendation is in.';
   }
   else{
-    $busState = mysqli_real_escape_string($dbc, trim($_POST['busState']));
+      $busState = mysqli_real_escape_string($dbc, trim($_POST['busState']));
   }
 
   if (empty($_POST['busZipCode'])){
-    $errors[] = 'Enter the zip code for your recommendation.';
+      $errors[] = 'Enter the zip code for your recommendation.';
   }
   else{
-    $busZipCode = mysqli_real_escape_string($dbc, trim($_POST['busZipCode']));
+      $busZipCode = mysqli_real_escape_string($dbc, trim($_POST['busZipCode']));
   }
 
   if (empty($_POST['busPrice'])){
-    $errors = 'Enter price range.';
+      $errors = 'Enter price range.';
   }
   else{
-    $busPrice = mysqli_real_escape_string($dbc, trim($_POST['busPrice']));
+      $busPrice = mysqli_real_escape_string($dbc, trim($_POST['busPrice']));
   }
 
   if (empty($_POST['busType'])){
-    $errors = 'Enter the type of place this is.';
+      $errors = 'Enter the type of place this is.';
   }
   else{
-    $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
+      $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
   }
 
   if(!empty($_POST['busTags'])){
-    $busTags = mysqli_real_escape_string($dbc, trim($_POST['busTags']));
+      $busTags = mysqli_real_escape_string($dbc, trim($_POST['busTags']));
   }
-  
+
   if (empty($_POST['busCovidRules'])){
-    $errors = 'Enter whether this place follows COVID rules.';
+      $errors = 'Enter whether this place follows COVID rules.';
   }
   else{
-    $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
+      $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
   }
-  
+
   if (empty($_POST['busCovidRules'])){
-    $errors = 'Enter whether this place follows COVID rules.';
+      $errors = 'Enter whether this place follows COVID rules.';
   }
   else{
-    $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
+      $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
   }
 
   if (empty($_POST['reviewMessage'])){
-    $errors[] = "Please enter a review to help this business stand out.";
+      $errors[] = "Please enter a review to help this business stand out.";
   }
   else{
-    $reviewMessage = mysqli_real_escape_string($dbc, trim($_POST['reviewMessage']));
+      $reviewMessage = mysqli_real_escape_string($dbc, trim($_POST['reviewMessage']));
   }
 
   ///// THIS IS THE UPLOAD CODE
-  $filepath = "uploads/" . $_FILES["file"]["name"];
+  $imgFilePath = "uploads/" . $_FILES["imgFilePath"]["name"];
 
-  if(file_exists("uploads/" . $_FILES["file"]["name"])) 
-  {
-   
+  if(file_exists("uploads/" . $_FILES["imgFilePath"]["name"])){
+
   } 
-  else 
-  {
-    $temp = explode(".", $_FILES["file"]["name"]);
-    $newfilename = round(microtime(true)) . '.' . end($temp);
-    move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $newfilename);
-  }
-  
-
-	//If nothing is wrong make query to see if business has already been added
-	if (empty($errors)){
-    
-    $query = "SELECT busID, busName, busZipCode, busCity, busReviewCount FROM Business WHERE busName='$busName' 
-    AND busZipCode='$busZipCode' AND busCity='$busCity'";
-
-    $result = @mysqli_query($dbc, $query);
-
-    //getting row information from query
-    if (mysqli_num_rows($result) > 0){
-      while($row = mysqli_fetch_assoc($result)){
-        $busReviewCount = $row["busReviewCount"];
-        $busID = $row["busID"];
-      }
-      
-      //Incrementing review count to reflect multiple recomendations
-      $busReviewCount += 1;
-      
-      //updating databse with new review count
-      $query = "UPDATE Business SET busReviewCount='$busReviewCount' WHERE busID='$busID'";
-
-      $result = @mysqli_query($dbc, $query);
-
-      //If everything is fine add new review to review table for business
-      if ($result){
-        $query = "INSERT INTO Review (userID, busID, reviewMessage)
-        VALUES ('$id', '$busID', '$reviewMessage')";
-
-        $result = @mysqli_query($dbc, $query);
-        
-        //If all is good redirect user to fresh recommend page
-        if ($result){
-          redirect_user('my_recommendations.php');
-        }
-
-        //Otherwise produce errors
-        else{
-          echo "There was an error. ";
-          echo mysqli_error($dbc);
-        }
-          mysqli_close($dbc);
-    
-          exit();
-      }
-      
-      //Otherwise return errors
-      else{
-        echo "There was an error. ";
-        echo mysqli_error($dbc);
-      }
-        mysqli_close($dbc);
-      
-        exit();
-    }
-    
-    //If business has not been recommended before insert form info into database
-    else{
-      $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType, busTags, busCovidRules) 
-      VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType', '$busTags', '$busCovidRules')";
-
-      $result = @mysqli_query($dbc, $query);
-
-      //If the query works query for the busID
-      if ($result){
-
-        $query = "SELECT busID FROM Business WHERE busName='$busName'";
-
-        $result = @mysqli_query($dbc, $query);
-
-        //Assign busID to a variable
-        if (mysqli_num_rows($result) > 0){
-          while($row = mysqli_fetch_assoc($result)){
-            $busID = $row["busID"];
-          }
-
-          //If query works
-          if ($result){
-
-              //insert review info into review table with userID and busID as foreign keys
-              $query = "INSERT INTO Review (userID, busID, reviewMessage)
-              VALUES ('$id', '$busID', '$reviewMessage')";
-        
-              $result = @mysqli_query($dbc, $query);
-            
-              //If everything is good redirect user to recommend another place
-              if ($result){
-                redirect_user ('recommend_redirect.php');
-              }
-
-              //Otherwise produce errors
-              else{
-                echo "There was an error. ";
-                echo mysqli_error($dbc);
-              }
-                mysqli_close($dbc);
-          
-                exit();
-            }
-
-            //Produce errors
-            else{
-              echo "There was an error. ";
-              echo mysqli_error($dbc);
-            }
-              mysqli_close($dbc);
-        
-              exit();
-          
-          }
-
-          //No data found in query
-          else{
-            echo "No data found";
-          }
-        }
-
-        //Otherwise list errors
-        else{
-          echo "There was an error. ";
-          echo mysqli_error($dbc);
-        }
-          mysqli_close($dbc);
-
-          exit();
-    }
-  }
-
-  //List errors for form
   else{
-    echo "There were errors.";
-    foreach($errors as $message){
-      echo "$message";
+      $temp = explode(".", $_FILES["imgFilePath"]["name"]);
+      $newfilename = round(microtime(true)) . '.' . end($temp);
+      move_uploaded_file($_FILES["imgFilePath"]["tmp_name"], "uploads/" . $newfilename);
+  }
+
+  //If nothing is wrong make query to see if business has already been added
+      if (empty($errors)){
+          $query = "SELECT busID, busName, busZipCode, busCity, busReviewCount FROM Business WHERE busName='$busName' 
+          AND busZipCode='$busZipCode' AND busCity='$busCity'";
+
+          $result = @mysqli_query($dbc, $query);
+
+          //Checking to see if business already exist in database
+          if (mysqli_num_rows($result) > 0){
+              while($row = mysqli_fetch_assoc($result)){
+                  $busReviewCount = $row["busReviewCount"];
+                  $busID = $row["busID"];
+              }
+              
+              //Incrementing review count to reflect multiple recomendations
+              $busReviewCount += 1;
+              
+              //updating databse with new review count
+              $query = "UPDATE Business SET busReviewCount='$busReviewCount' WHERE busID='$busID'";
+          
+              $result = @mysqli_query($dbc, $query);
+          
+              //If everything is fine add new review to review table for business
+              if ($result){
+                  $query = "INSERT INTO Review (userID, busID, reviewMessage)
+                  VALUES ('$id', '$busID', '$reviewMessage')";
+          
+                  $result = @mysqli_query($dbc, $query);
+                  
+                  //If all is good redirect user to fresh recommend page
+                  if ($result){
+                      redirect_user('recommend.php');
+                  }
+                  //Otherwise produce errors if all is not good
+                  else{
+                      echo "There was an error. ";
+                      echo mysqli_error($dbc);
+                  }
+                      mysqli_close($dbc);
+              
+                      exit();
+              }
+              //Otherwise return errors on add review
+                  else{
+                      echo "There was an error. ";
+                      echo mysqli_error($dbc);
+                  }
+                      mysqli_close($dbc);
+                  
+                      exit();
+          }
+          //If business has not been recommended before insert form info into database
+          else{
+              $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType, busTags, busCovidRules) 
+              VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType', '$busTags', '$busCovidRules')";
+      
+              $result = @mysqli_query($dbc, $query);
+      
+              //If the query works query for the businuss
+              if ($result){
+                  $query = "SELECT busID FROM Business WHERE busName='$busName'";
+
+                  $result = @mysqli_query($dbc, $query);
+
+                  //Assign busID to a variable
+                  if (mysqli_num_rows($result) > 0){
+                      while($row = mysqli_fetch_assoc($result)){
+                          $busID = $row["busID"];
+                      }
+              
+                      //If query works
+                      if ($result){
+                          //upload image to database
+                              $query = "INSERT INTO Image (busID, imgFilePath)
+                              VALUES ('$busID', '$imgFilePath')";
+
+                              $result = @mysqli_query($dbc, $query);
+                              
+                              //if upload image works
+                              if ($result){
+
+                                  //insert review info into review table with userID and busID as foreign keys
+                                  $query = "INSERT INTO Review (userID, busID, reviewMessage)
+                                  VALUES ('$id', '$busID', '$reviewMessage')";
+                              
+                                  $result = @mysqli_query($dbc, $query);
+                                  
+                                  //If everything is good redirect user to recommend another place
+                                  if ($result){
+                                      redirect_user ('recommend.php');
+                                  }
+                                  //Otherwise produce errors
+                                  else{
+                                      echo "There was an error. ";
+                                      echo mysqli_error($dbc);
+                                  }
+                                      mysqli_close($dbc);
+                              
+                                      exit();
+                              }
+                              //Produce errors for image upload
+                              else{
+                                  echo "There was an error. ";
+                                  echo mysqli_error($dbc);
+                              }
+                                  mysqli_close($dbc);
+                          
+                                  exit();
+                      }
+                      //list errors for query
+                          else{
+                              echo "There was an error. ";
+                              echo mysqli_error($dbc);
+                          }
+                              mysqli_close($dbc);
+                      
+                              exit();
+                  }
+                  //Otherwise list errors for assign busID
+                  else{
+                      echo "There was an error. ";
+                      echo mysqli_error($dbc);
+                  }
+                      mysqli_close($dbc);
+          
+                      exit();
+              }
+              //Otherwise list errors for busID query
+              else{
+                  echo "There was an error. ";
+                  echo mysqli_error($dbc);
+              }
+                  mysqli_close($dbc);
+
+                  exit();
+      }
     }
-    echo "Try again";
+      //List errors for form
+  else{
+      echo "There were errors.";
+      foreach($errors as $message){
+      echo "$message";
+      }
+      echo "Try again";
   }
 }
-
 ?>
 
 
@@ -377,59 +382,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
       <!-- Tags Code -->
       <label class="form_content_titles">Tags</label></br>
-      <!-- <select class="recommend_form_input" id="busTags" name="busTags" multiple> -->
         <div class="checkbox_form">
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Kid Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Pet Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Date Night
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Vegan Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Vegetarian Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Family Fun
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Outdoors/Nature
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox">
+        <input type="checkbox" id="busTags" name="busTags">
         <label class="tags_container">Local Only
         <span class="tags_checkmark"></span>
         </label></br>
         </div>
-
-        <!-- <option style="font-weight: bold;" placeholder="Instructions">Hold control (ctrl) to pick multiple tags</option>
-        <option placeholder="Kid Friendly">Kid Friendly</option>
-        <option placeholder="Dog Friendly">Dog Friendly</option>
-        <option placeholder="Date Night">Date Night</option>
-        <option placeholder="Vegan Friendly">Vegan Friendly</option>
-        <option placeholder="Vegetarian Friendly">Vegetarian Friendly</option>
-        <option placeholder="Family Fun">Family Fun</option>
-        <option placeholder="Outdoors/Nature">Outdoors/Nature</option>
-        <option placeholder="Local Only">Local Only</option> -->
-      <!-- </select></br> -->
 
       <label class="form_content_titles">Follows COVID Protocols</label></br>
       <select class="recommend_form_input" id="busCovidRules" name="busCovidRules" required>
@@ -440,7 +433,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
       <!-- UPLOAD IMAGE CODE -->
       <label class="form_content_titles">Select an Image</label></br>
-      <input type="file" class="file_select_btn" name="file" required></br>
+      <input type="file" class="file_select_btn"  id="imgFilePath" name="imgFilePath"></br>
 
       <label class="form_content_titles">Review</label></br>
       <textarea class="review_content" name="reviewMessage" placeholder="Tell everyone why you love this place!" maxlength="512" required></textarea></br>
