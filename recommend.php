@@ -179,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                       if ($result){
                           //upload image to database
                               $query = "INSERT INTO Image (busID, imgFilePath)
-                              VALUES ('$busID', '$imgFilePath')";
+                              VALUES ('$busID', '$newfilename')";
 
                               $result = @mysqli_query($dbc, $query);
                               
