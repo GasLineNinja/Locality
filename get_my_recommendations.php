@@ -7,8 +7,11 @@
  $id = $_SESSION['userID'];
 
  //query databse for businesses logged in user has recommended and their reviews
- $query = "SELECT Business.busName, Review.reviewMessage
- FROM Business INNER JOIN Review ON Business.busID = Review.busID WHERE Review.userID = '$id'";
+ $query = "SELECT Business.busName, Review.reviewMessage, Image.imgFilePath
+ FROM Business 
+ INNER JOIN Review ON Business.busID = Review.busID 
+ LEFT JOIN Image ON Business.busID = Image.busID 
+ WHERE Review.userID = '$id'";
 
  //checking query result
  $result = @mysqli_query($dbc, $query);
@@ -21,20 +24,40 @@
    echo '';
 
    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-     echo '
-        <div class="pull_content">
+     $imgPath = $row["imgFilePath"];
 
-          <img class="review_image" src="uploads/placeholder.png" alt="placeholder">
+     if ($imgPath != NULL){
+      echo '
+          <div class="pull_content">
 
-          <h1 class="review_busName">' . $row['busName'] . '</h1>
+            <img class="review_image" src="uploads/' . $imgPath . '" alt="placeholder">
 
-          <h4 class="review_review">Review:</h4>
-          <div class="pulled_reivew">
-            <p>' . $row['reviewMessage'] . '</p>
+            <h1 class="review_busName">' . $row['busName'] . '</h1>
+
+            <h4 class="review_review">Review:</h4>
+            <div class="pulled_reivew">
+              <p>' . $row['reviewMessage'] . '</p>
+            </div>
           </div>
+          </br>
+      ';
+     }
+     else{
+      echo '
+      <div class="pull_content">
+
+        <img class="review_image" src="uploads/placeholder.png" alt="placeholder">
+
+        <h1 class="review_busName">' . $row['busName'] . '</h1>
+
+        <h4 class="review_review">Review:</h4>
+        <div class="pulled_reivew">
+          <p>' . $row['reviewMessage'] . '</p>
         </div>
-        </br>
-     ';
+      </div>
+      </br>
+   ';
+     }
    }
    echo '';
 
