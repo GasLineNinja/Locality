@@ -11,7 +11,7 @@
  Business.busZipCode, Business.busReviewCount, Business.busPrice, Business.busType, Business.busCovidRules, 
  Review.reviewMessage, Image.imgFilePath 
  FROM Business 
- INNER JOIN Review ON Business.busID = Review.busID 
+ LEFT JOIN Review ON Business.busID = Review.busID 
  LEFT JOIN Image ON Business.busID = Image.busID ";
 
  //checking query result

@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   //If nothing is wrong make query to see if business has already been added
       if (empty($errors)){
           $query = "SELECT busID, busName, busZipCode, busCity, busReviewCount FROM Business WHERE busName='$busName' 
-          AND busZipCode='$busZipCode' AND busCity='$busCity'";
+          AND busStreetAddress='$busStreetAddress' AND busCity='$busCity'";
 
           $result = @mysqli_query($dbc, $query);
 
