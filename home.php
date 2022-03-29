@@ -63,6 +63,13 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
+  <div>
+      <ul class="sideNav">
+        <a href="edit_account.php"><li class="nav_select"><p class="nav_txt">Edit Account</p></li></a>
+        <a href="update_pass.php"><li class="nav_select"><p class="nav_txt">Update Password</p></li></a>
+        <a href="index.php"><li class="nav_select"><p class="nav_txt">Delete Account</p></li></a>
+      </ul>
+    </div>
   </div>
 </div>
   
