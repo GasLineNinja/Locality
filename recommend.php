@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   }
 
   if (empty($_POST['busState'])){
-      $errors = 'Enter the state your recommendation is in.';
+      $errors[] = 'Enter the state your recommendation is in.';
   }
   else{
       $busState = mysqli_real_escape_string($dbc, trim($_POST['busState']));
@@ -55,32 +55,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   }
 
   if (empty($_POST['busPrice'])){
-      $errors = 'Enter price range.';
+      $errors[] = 'Enter price range.';
   }
   else{
       $busPrice = mysqli_real_escape_string($dbc, trim($_POST['busPrice']));
   }
 
   if (empty($_POST['busType'])){
-      $errors = 'Enter the type of place this is.';
+      $errors[] = 'Enter the type of place this is.';
   }
   else{
       $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
   }
 
-  if(!empty($_POST['busTags'])){
+  if(empty($_POST['busTags'])){
+      $errors[] = 'Please choose at least one tag for this destination.';
+  }
+  else{
       $busTags = mysqli_real_escape_string($dbc, trim($_POST['busTags']));
   }
 
   if (empty($_POST['busCovidRules'])){
-      $errors = 'Enter whether this place follows COVID rules.';
+      $errors[] = 'Enter whether this place follows COVID rules.';
   }
   else{
       $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
   }
 
   if (empty($_POST['busCovidRules'])){
-      $errors = 'Enter whether this place follows COVID rules.';
+      $errors[] = 'Enter whether this place follows COVID rules.';
   }
   else{
       $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));

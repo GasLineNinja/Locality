@@ -7,7 +7,7 @@
 
 body {
 	padding-top: 150px;
-  background: rgba(58, 108, 245);
+  background: rgb(58, 108, 245);
   margin: 0;
 }
 
@@ -17,7 +17,7 @@ body {
   width: 100%;
   height: 35px;
   display: block;
-  background-color: rgba(11, 3, 117);
+  background-color: rgb(11, 3, 117);
   padding: 75px;
   text-align: center;
   opacity: 1;
@@ -31,7 +31,7 @@ body {
 
 .login{
   color: white;
-  background-color: rgba(58, 108, 245);
+  background-color: rgb(58, 108, 245);
   border-radius: 14px;
 	text-decoration: none;
   font-size: large;

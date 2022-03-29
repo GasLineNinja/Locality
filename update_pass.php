@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   <div class="column middle">
 
   <div class="signUp_form">
-	<h1 class="form_info">Please fill out the form below to create an account</h1>
+	<h1 class="form_info">Please enter new password</h1>
     <form action="update_pass.php" method="post" style="margin-left:125px; text-align:left; font-size:x-large;">
 
       <label class="form_content_titles">New Password</label></br>
