@@ -46,31 +46,22 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   </div>
   
   <div class="column middle">
-
-  <div class="pull_content">
-      <p class="review_busName">ACCOUNT INFOMATION WOULD GO HERE</p>
-      <p>Would it though?</p>
-
-    
-  </div>
-  </br>
-
-
-  <div class="pull_content">
-    <center>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.4601443532665!2d-79.13427753120769!3d33.41124595587085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x890031609db58a79%3A0x4c1928338e07d867!2s617%20Springs%20Ave%2C%20Pawleys%20Island%2C%20SC%2029585!5e0!3m2!1sen!2sus!4v1648084354017!5m2!1sen!2sus" 
-      width="560" height="450" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
-    </center>
+    <div class="pull_content">
+        <h1 style="color: red;">!!WARNING!!</h1>
+        <p style="color: red;">Are you sure you want to delete your account?</p>
+        
+          <button type="submit" formaction="/index.php">Cancel</button>
+          <button type="submit" onclick="<?php include('delete_functions.php')?>">Delete Profile</button>
+          
     </div>
-  </div>
-  
+    </div>
+
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
   <div>
       <ul class="sideNav">
         <a href="edit_account.php"><li class="nav_select"><p class="nav_txt">Edit Account</p></li></a>
         <a href="update_pass.php"><li class="nav_select"><p class="nav_txt">Update Password</p></li></a>
-        <a href="delete.php"><li class="nav_select"><p class="nav_txt">Delete Account</p></li></a>
       </ul>
     </div>
   </div>
