@@ -53,7 +53,10 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
         
           <button type="submit" formaction="/home.php">Cancel</button>
           <button type="submit" formaction="/delete_functions.php">Delete Profile</button>
-      </form>
+          
+          <a href="home.php"><li class=><p class=>Cancel</p></li></a>
+          <a href="delete_functions.php"><li class=><p class=>Delete Profile</p></li></a>
+        </form>
     </div>
     </div>
 
