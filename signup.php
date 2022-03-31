@@ -73,31 +73,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//If nothing is wrong make query
 	if (empty($errors)){
 
-		$query = "INSERT INTO User (username, userFirstName, userLastName, userPassword, userCity, userZipCode, userEmail) 
-		VALUES ('$username', '$fname', '$lname', SHA2('$password',256), '$city', '$zipcode', '$email')";
+    $query = "SELECT username FROM User WHERE username='$username'";
 
-		$result = @mysqli_query($dbc, $query);
+    $result = @mysqli_query($dbc, $query);
 
-		//If the query works relay message
-		if ($result){
+    if ($result){
+      echo '<h2 style="color: red;">Username already exists. Please choose another.<h2>';
+    }
+    else{
+      $query = "INSERT INTO User (username, userFirstName, userLastName, userPassword, userCity, userZipCode, userEmail) 
+      VALUES ('$username', '$fname', '$lname', SHA2('$password',256), '$city', '$zipcode', '$email')";
 
-      redirect_user ('home.php');
+      $result = @mysqli_query($dbc, $query);
 
-			echo "<p>Thank you $username you are now signed up!</p>";
-			echo '<p>Please <a href="login.php">Login</a> to continue.</P>';
-			
-		}
+      //If the query works relay message
+      if ($result){
 
-		//Otherwise list errors
-		else{
-			echo "There was an error. ";
-			echo mysqli_error($dbc);
-		}
-		mysqli_close($dbc);
+        redirect_user ('login.php');
 
-		exit();
-	}
-	else{
+        echo "<p>Thank you $username you are now signed up!</p>";
+        echo '<p>Please <a href="login.php">Login</a> to continue.</P>';
+        
+      }
+
+      //Otherwise list errors
+      else{
+        echo "There was an error. ";
+        echo mysqli_error($dbc);
+      }
+      mysqli_close($dbc);
+
+      exit();
+    }
+    }
+    else{
 
 		echo "There were errors.";
 		foreach($errors as $message){

@@ -47,12 +47,13 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   
   <div class="column middle">
     <div class="pull_content">
+      <form>
         <h1 style="color: red;">!!WARNING!!</h1>
         <p style="color: red;">Are you sure you want to delete your account?</p>
         
-          <button type="submit" formaction="/index.php">Cancel</button>
-          <button type="submit" onclick="<?php include('delete_functions.php')?>">Delete Profile</button>
-          
+          <button type="submit" formaction="/home.php">Cancel</button>
+          <button type="submit" formaction="/delete_functions.php">Delete Profile</button>
+      </form>
     </div>
     </div>
 
