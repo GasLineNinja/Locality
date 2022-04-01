@@ -550,3 +550,48 @@ input[type=file]::file-selector-button:hover {
   cursor: pointer;
   border-radius: 14px;
 }
+
+.cancel_delete_btn{
+  cursor: pointer;
+  background-color: #07f813;
+  border: none;
+  color: #005704;
+  padding: 15px 32px;
+  margin: 12px;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 14px;
+  box-shadow: 4px 4px #005704;
+  transition: all 0.2s ease;
+}
+
+.cancel_delete_btn:hover{
+  background-color: #b8ffbc;
+  transition: all 0.2s ease;
+}
+
+.delete_btn{
+  cursor: pointer;
+  background-color: #f80707;
+  border: none;
+  color: rgb(34, 0, 0);
+  padding: 10px 25px;
+  margin:12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius:14px;
+  box-shadow: 4px 4px #570505;
+  transition: all 0.2s ease;
+}
+
+.delete_btn:hover{
+  background-color: #ff9b9b;
+  transition: all 0.2s ease;
+}

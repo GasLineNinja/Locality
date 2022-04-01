@@ -48,14 +48,14 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   <div class="column middle">
     <div class="pull_content">
       <form>
-        <h1 style="color: red;">!!WARNING!!</h1>
-        <p style="color: red;">Are you sure you want to delete your account?</p>
+        <center>
+        <h1 style="color: red;">Would you like to delete your account?</h1>
+        <p style="color: red;">Warning: account deletion is permanent, this action cannot be reverted!</p>
         
-          <button type="submit" formaction="/home.php">Cancel</button>
-          <button type="submit" formaction="/delete_functions.php">Delete Profile</button>
-          
-          <a href="home.php"><li class=><p class=>Cancel</p></li></a>
-          <a href="delete_functions.php"><li class=><p class=>Delete Profile</p></li></a>
+        
+        <button class="cancel_delete_btn" type="submit" formaction="/home.php">No, Take me back to Home</button></br>
+        <button class="delete_btn" type="submit" formaction="/delete_functions.php">Yes, Permanently delete my account</button>
+        </center>
         </form>
     </div>
     </div>

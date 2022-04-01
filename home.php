@@ -48,8 +48,7 @@ if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER
   <div class="column middle">
 
   <div class="pull_content">
-      <p class="review_busName">ACCOUNT INFOMATION WOULD GO HERE</p>
-      <p>Would it though?</p>
+      <p class="review_busName">Placeholder Text</p>
 
     
   </div>
