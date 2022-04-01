@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $errors = array();
 
   //checking for form information
+  //Business info
   if (empty($_POST['busName'])){
       $errors[] = 'Must enter business name to recommend it to others.';
   }
@@ -68,13 +69,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
   }
 
-  if(empty($_POST['busTags'])){
+  /*if(empty($_POST['busTags'])){
       $errors[] = 'Please choose at least one tag for this destination.';
   }
   else{
       $busTags = mysqli_real_escape_string($dbc, trim($_POST['busTags']));
-  }
+  }*/
 
+  //Tags
+  //if (isset($_POST['KidFriendly'])){
+      $KidFriendly = "Kid Friendly";
+  //}
+  //if (isset($_POST['PetFriendly'])){
+      $PetFriendly = "Pet Friendly";
+  //}
+  //if (isset($_POST['DateNight'])){
+      $DateNight = "Date Night";
+  //}
+  //if (isset($_POST['VeganFriendly'])){
+      $VeganFriendly = "Vegan Friendly";
+  //}
+  //if (isset($_POST['VegFriendly'])){
+      $VegFriendly = "Vegetarian Friendly";
+ // }
+  //if (isset($_POST['FamilyFun'])){
+      $FamilyFun = "Family Fun";
+  //}
+  //if (isset($_POST['OutdoorsNature'])){
+      $OutdoorsNature = "Outdoors/Nature";
+  //}
+  //if (isset($_POST['LocalOnly'])){
+    $LocalGem = "Local Gem";
+  //} 
+
+  //Covid Rules
   if (empty($_POST['busCovidRules'])){
       $errors[] = 'Enter whether this place follows COVID rules.';
   }
@@ -82,13 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
   }
 
-  if (empty($_POST['busCovidRules'])){
-      $errors[] = 'Enter whether this place follows COVID rules.';
-  }
-  else{
-      $busCovidRules = mysqli_real_escape_string($dbc, trim($_POST['busCovidRules']));
-  }
-
+  //Review
   if (empty($_POST['reviewMessage'])){
       $errors[] = "Please enter a review to help this business stand out.";
   }
@@ -161,8 +183,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
           }
           //If business has not been recommended before insert form info into database
           else{
-              $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType, busTags, busCovidRules) 
-              VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType', '$busTags', '$busCovidRules')";
+              $query = "INSERT INTO Business (busName, busStreetAddress, busCity, busState, busZipCode, busReviewCount, busPrice, busType, busCovidRules) 
+              VALUES ('$busName', '$busStreetAddress', '$busCity', '$busState', '$busZipCode', '1', '$busPrice', '$busType', '$busCovidRules')";
       
               $result = @mysqli_query($dbc, $query);
       
@@ -174,20 +196,96 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                   //Assign busID to a variable
                   if (mysqli_num_rows($result) > 0){
-                      while($row = mysqli_fetch_assoc($result)){
-                          $busID = $row["busID"];
-                      }
+                      $row = mysqli_fetch_assoc($result);
+                      $busID = $row["busID"];
+                      
               
                       //If query works
                       if ($result){
+
+                        //upload tags to database
+                        if (isset($_POST['KidFriendly'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$KidFriendly')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Kid Friendly';
+                            }
+                        }
+                        if (isset($_POST['PetFriendly'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$PetFriendly')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Pet Friendly';
+                            }
+                        }
+                        if (isset($_POST['DateNight'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$DateNight')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Date Night';
+                            }
+                        }
+                        if (isset($_POST['VeganFriendly'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$VeganFriendly')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Vegan Friendly';
+                            }
+                        }
+                        if (isset($_POST['VegFriendly'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$VegFriendly')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Vegetarian Friendly';
+                            }
+                        }
+                        if (isset($_POST['FamilyFun'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$FamilyFun')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Family Fun';
+                            }
+                        }
+                        if (isset($_POST['OutdoorsNature'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$OutdoorsNature')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Outdoors/Nature';
+                            }
+                        }
+                        if (isset($_POST['LocalGem'])){
+                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$LocalGem')";
+
+                            $result = @mysqli_query($dbc, $query);
+
+                            if (!$result){
+                                echo 'There was an error on Local Only';
+                            }
+                        }
+                        
                           //upload image to database
+                          if (isset($_POST['imgFilePath'])){
                               $query = "INSERT INTO Image (busID, imgFilePath)
                               VALUES ('$busID', '$newfilename')";
-
+                          }
                               $result = @mysqli_query($dbc, $query);
                               
                               //if upload image works
-                              if ($result){
+                              if (isset($_POST['reviewMessage'])){
 
                                   //insert review info into review table with userID and busID as foreign keys
                                   $query = "INSERT INTO Review (userID, busID, reviewMessage)
@@ -216,6 +314,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                   mysqli_close($dbc);
                           
                                   exit();
+                           // }
                       }
                       //list errors for query
                           else{
@@ -386,43 +485,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       <!-- Tags Code -->
       <label class="form_content_titles">Tags</label></br>
         <div class="checkbox_form">
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="KidFriendly" name="KidFriendly">
         <label class="tags_container">Kid Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="PetFriendly" name="PetFriendly">
         <label class="tags_container">Pet Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="DateNight" name="DateNight">
         <label class="tags_container">Date Night
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="VeganFriendly" name="VeganFriendly">
         <label class="tags_container">Vegan Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="VegFriendly" name="VegFriendly">
         <label class="tags_container">Vegetarian Friendly
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="FamilyFun"name="FamilyFun">
         <label class="tags_container">Family Fun
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
+        <input type="checkbox" id="OutdoorsNature" name="OutdoorsNature">
         <label class="tags_container">Outdoors/Nature
           <span class="tags_checkmark"></span>
         </label></br>
 
-        <input type="checkbox" id="busTags" name="busTags">
-        <label class="tags_container">Local Only
+        <input type="checkbox" id="LocalGem" name="LocalGem">
+        <label class="tags_container">Local Gem
         <span class="tags_checkmark"></span>
         </label></br>
         </div>
