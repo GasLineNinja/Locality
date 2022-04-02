@@ -428,7 +428,7 @@ a{
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 14px;
-  box-sizing: border-box'
+  box-sizing: border-box;
 }
 
 .checkbox{
@@ -594,4 +594,4 @@ input[type=file]::file-selector-button:hover {
 .delete_btn:hover{
   background-color: #ff9b9b;
   transition: all 0.2s ease;
-}
+} 
