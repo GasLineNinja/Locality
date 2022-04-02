@@ -12,6 +12,7 @@
 
     //Displays defualt header when logged out
     echo '
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <div style="opacity: 1;" class="topnav">
       <div class="topnav-left">
             <a href="index.php"><img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto"></a>
@@ -30,6 +31,7 @@
 
     //Displays header when logged in
     echo '
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <div style="opacity: 1;" class="topnav">
       <div class="topnav-left">
       <a href="home.php"><img class="lglogo" src="LogoFull_3.0.png" width="200" height="auto" ></a>
