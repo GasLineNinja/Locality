@@ -73,38 +73,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//If nothing is wrong make query
 	if (empty($errors)){
 
-    $query = "SELECT username FROM User WHERE username='$username'";
-
-    $result = @mysqli_query($dbc, $query);
-
-    if ($result){
-      echo '<h2 style="color: red;">Username already exists. Please choose another.<h2>';
-    }
-    else{
-      $query = "INSERT INTO User (username, userFirstName, userLastName, userPassword, userCity, userZipCode, userEmail) 
-      VALUES ('$username', '$fname', '$lname', SHA2('$password',256), '$city', '$zipcode', '$email')";
+      $query = "SELECT username FROM User WHERE username='$username'";
 
       $result = @mysqli_query($dbc, $query);
 
-      //If the query works relay message
-      if ($result){
-
-        redirect_user ('login.php');
-
-        echo "<p>Thank you $username you are now signed up!</p>";
-        echo '<p>Please <a href="login.php">Login</a> to continue.</P>';
-        
+      if (mysqli_num_rows($result) > 0){
+        echo '<h2 style="color: red;">Username already exists. Please choose another.<h2>';
       }
-
-      //Otherwise list errors
       else{
-        echo "There was an error. ";
-        echo mysqli_error($dbc);
-      }
-      mysqli_close($dbc);
+        $query = "INSERT INTO User (username, userFirstName, userLastName, userPassword, userCity, userZipCode, userEmail) 
+        VALUES ('$username', '$fname', '$lname', SHA2('$password',256), '$city', '$zipcode', '$email')";
 
-      exit();
-    }
+        $result = @mysqli_query($dbc, $query);
+
+        //If the query works relay message
+        if ($result){
+
+          redirect_user ('login.php');
+        }
+
+        //Otherwise list errors
+        else{
+          echo "There was an error. ";
+          echo mysqli_error($dbc);
+        }
+        mysqli_close($dbc);
+
+        exit();
+      }
     }
     else{
 
