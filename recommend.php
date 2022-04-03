@@ -69,38 +69,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       $busType = mysqli_real_escape_string($dbc, trim($_POST['busType']));
   }
 
-  /*if(empty($_POST['busTags'])){
-      $errors[] = 'Please choose at least one tag for this destination.';
-  }
-  else{
-      $busTags = mysqli_real_escape_string($dbc, trim($_POST['busTags']));
-  }*/
-
-  //Tags
-  //if (isset($_POST['KidFriendly'])){
-      $KidFriendly = "Kid Friendly";
-  //}
-  //if (isset($_POST['PetFriendly'])){
-      $PetFriendly = "Pet Friendly";
-  //}
-  //if (isset($_POST['DateNight'])){
-      $DateNight = "Date Night";
-  //}
-  //if (isset($_POST['VeganFriendly'])){
-      $VeganFriendly = "Vegan Friendly";
-  //}
-  //if (isset($_POST['VegFriendly'])){
-      $VegFriendly = "Vegetarian Friendly";
- // }
-  //if (isset($_POST['FamilyFun'])){
-      $FamilyFun = "Family Fun";
-  //}
-  //if (isset($_POST['OutdoorsNature'])){
-      $OutdoorsNature = "Outdoors/Nature";
-  //}
-  //if (isset($_POST['LocalOnly'])){
+  //Tag variables
+    $KidFriendly = "Kid Friendly";
+    $PetFriendly = "Pet Friendly";
+    $DateNight = "Date Night";
+    $VeganFriendly = "Vegan Friendly";
+    $VegFriendly = "Vegetarian Friendly";
+    $FamilyFun = "Family Fun";
+    $OutdoorsNature = "Outdoors/Nature";
     $LocalGem = "Local Gem";
-  //} 
 
   //Covid Rules
   if (empty($_POST['busCovidRules'])){
@@ -199,91 +176,99 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                       $row = mysqli_fetch_assoc($result);
                       $busID = $row["busID"];
                       
-              
                       //If query works
                       if ($result){
 
-                        //upload tags to database
-                        if (isset($_POST['KidFriendly'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$KidFriendly')";
+                            //upload tags to database
+                            if (isset($_POST['KidFriendly'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$KidFriendly')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Kid Friendly';
+                                if (!$result){
+                                    echo 'There was an error on Kid Friendly';
+                                }
                             }
-                        }
-                        if (isset($_POST['PetFriendly'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$PetFriendly')";
+                            if (isset($_POST['PetFriendly'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$PetFriendly')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Pet Friendly';
+                                if (!$result){
+                                    echo 'There was an error on Pet Friendly';
+                                }
                             }
-                        }
-                        if (isset($_POST['DateNight'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$DateNight')";
+                            if (isset($_POST['DateNight'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$DateNight')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Date Night';
+                                if (!$result){
+                                    echo 'There was an error on Date Night';
+                                }
                             }
-                        }
-                        if (isset($_POST['VeganFriendly'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$VeganFriendly')";
+                            if (isset($_POST['VeganFriendly'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$VeganFriendly')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Vegan Friendly';
+                                if (!$result){
+                                    echo 'There was an error on Vegan Friendly';
+                                }
                             }
-                        }
-                        if (isset($_POST['VegFriendly'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$VegFriendly')";
+                            if (isset($_POST['VegFriendly'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$VegFriendly')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Vegetarian Friendly';
+                                if (!$result){
+                                    echo 'There was an error on Vegetarian Friendly';
+                                }
                             }
-                        }
-                        if (isset($_POST['FamilyFun'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$FamilyFun')";
+                            if (isset($_POST['FamilyFun'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$FamilyFun')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Family Fun';
+                                if (!$result){
+                                    echo 'There was an error on Family Fun';
+                                }
                             }
-                        }
-                        if (isset($_POST['OutdoorsNature'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$OutdoorsNature')";
+                            if (isset($_POST['OutdoorsNature'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$OutdoorsNature')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Outdoors/Nature';
+                                if (!$result){
+                                    echo 'There was an error on Outdoors/Nature';
+                                }
                             }
-                        }
-                        if (isset($_POST['LocalGem'])){
-                            $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$LocalGem')";
+                            if (isset($_POST['LocalGem'])){
+                                $query = "INSERT INTO Tag (busID, tag) VALUES ('$busID', '$LocalGem')";
 
-                            $result = @mysqli_query($dbc, $query);
+                                $result = @mysqli_query($dbc, $query);
 
-                            if (!$result){
-                                echo 'There was an error on Local Only';
+                                if (!$result){
+                                    echo 'There was an error on Local Only';
+                                }
                             }
-                        }
                         
                           //upload image to database
-                          if (isset($_POST['imgFilePath'])){
-                              $query = "INSERT INTO Image (busID, imgFilePath)
-                              VALUES ('$busID', '$newfilename')";
-                          }
+                          //if (isset($_POST['imgFilePath'])){
+                              $query = "INSERT INTO Image (busID, imgFilePath) VALUES ('$busID', '$newfilename')";
+                          
                               $result = @mysqli_query($dbc, $query);
+
+                              //if (!$result){
+                           //     echo "There was an error. ";
+                           //     echo mysqli_error($dbc);
+                           // }
+                           //     mysqli_close($dbc);
+                        
+                           //     exit();
                               
+                         // }
+                          if ($result){
                               //if upload image works
                               if (isset($_POST['reviewMessage'])){
 
@@ -306,6 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                               
                                       exit();
                               }
+                            }
                               //Produce errors for image upload
                               else{
                                   echo "There was an error. ";
