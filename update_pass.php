@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   <div>
       <ul class="sideNav">
         <a href="edit_account.php"><li class="nav_select"><p class="nav_txt">Edit Account</p></li></a>
-        <a href="index.php"><li class="nav_select"><p class="nav_txt">Delete Account</p></li></a>
+        <a href="delete.php"><li class="nav_select"><p class="nav_txt">Delete Account</p></li></a>
       </ul>
     </div>
   </div>
