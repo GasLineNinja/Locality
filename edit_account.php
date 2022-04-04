@@ -91,6 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   
   <div class="column side">
 	<!--<img class="smlogo" src="LogoSmall_3.0.png">-->
+  <div>
+      <ul class="sideNav">
+        <a href="home.php"><li class="nav_select"><p class="nav_txt">Back</p></li></a>
+      </ul>
+    </div>
   </div>
 </div>
   
