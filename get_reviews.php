@@ -32,7 +32,7 @@
       echo '
             <div class="pull_content">
               
-              <img class="review_image" src="uploads/' . $imgPath . '" alt="placeholder">
+              <img class="review_image" src="uploads/' . $imgPath . '" alt="img">
 
               <h1 class="review_busName">' . $row['busName'] . '</h1>
               

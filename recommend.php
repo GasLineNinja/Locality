@@ -254,22 +254,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             }
                         
                           //upload image to database
-                          //if (isset($_POST['imgFilePath'])){
-                              $query = "INSERT INTO Image (busID, imgFilePath) VALUES ('$busID', '$newfilename')";
-                          
-                              $result = @mysqli_query($dbc, $query);
-
-                              //if (!$result){
-                           //     echo "There was an error. ";
-                           //     echo mysqli_error($dbc);
-                           // }
-                           //     mysqli_close($dbc);
+                            $query = "INSERT INTO Image (busID, imgFilePath) VALUES ('$busID', '$newfilename')";
                         
-                           //     exit();
-                              
-                         // }
+                            $result = @mysqli_query($dbc, $query);
+                            
+                            //if upload image works
                           if ($result){
-                              //if upload image works
+                              
                               if (isset($_POST['reviewMessage'])){
 
                                   //insert review info into review table with userID and busID as foreign keys
@@ -300,7 +291,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                   mysqli_close($dbc);
                           
                                   exit();
-                           // }
                       }
                       //list errors for query
                           else{

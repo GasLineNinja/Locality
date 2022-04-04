@@ -19,8 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$_SESSION['username'] = $data['username'];
 
 		$_SESSION['userID'] = $data['userID'];
-
-		$_SESSION['userCity'] = $data['userCity'];
+		$_SESSION['userFirstName'] = $data['userFirstName'];
+		$_SESSION['userLastName'] = $data['userLastName'];
+		$_SESSION['userEmail'] = $data['userEmail'];
+ 		$_SESSION['userCity'] = $data['userCity'];
+		$_SESSION['userZipCode'] = $data['userZipCode'];
 
 		//storing HTTP_USER_AGENT
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
